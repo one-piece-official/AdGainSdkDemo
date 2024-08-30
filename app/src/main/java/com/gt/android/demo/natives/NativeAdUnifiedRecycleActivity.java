@@ -41,7 +41,7 @@ import java.util.Map;
 
 public class NativeAdUnifiedRecycleActivity extends Activity {
 
-    private static final int LIST_ITEM_COUNT = 10;
+    private static final int LIST_ITEM_COUNT = 12;
 
     private LoadMoreRecyclerView mListView;
 

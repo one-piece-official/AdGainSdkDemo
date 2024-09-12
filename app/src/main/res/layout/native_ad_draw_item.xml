@@ -64,7 +64,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/app_icon" />
 
             <!-- 原生广告的标题 -->
             <TextView

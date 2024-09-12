@@ -23,7 +23,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="5dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/app_icon" />
 
             <!-- 原生广告的标题 -->
             <TextView

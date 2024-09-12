@@ -15,7 +15,7 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:src="@mipmap/ad_logo" />
+        android:src="@mipmap/app_logo" />
 
     <!-- 4.预设开屏图片区域： -->
     <!-- 开发者可以把自家App设计开屏图片摆放在这里，本示例中放置了一张静态图片。然后在onADPresent回调中再把这个图片隐藏起来。 !-->
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/app_logo"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@mipmap/launcher" />
 
     <!-- 2.开屏广告容器区域：-->

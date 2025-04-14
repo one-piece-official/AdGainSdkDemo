@@ -1,82 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context="com.gt.android.demo.InterstitialActivity">
+    android:scrollbars="none"
+    tools:context=".InterstitialDemoActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="请选择广告网络"
-            android:textSize="16dp" />
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:id="@+id/ll_placement"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/spinner_bg">
-
-            <Spinner
-                android:id="@+id/id_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:spinnerMode="dropdown" />
+            android:orientation="vertical">
 
         </LinearLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
-
         <Button
-            android:id="@+id/bt_load_ad"
+            android:id="@+id/cleanLog_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="ButtonClick"
-            android:text="Load广告" />
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:onClick="buttonClick"
+            android:text="clean Log" />
 
-        <Button
-            android:id="@+id/bt_show_ad"
+        <TextView
+            android:id="@+id/logView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="ButtonClick"
-            android:text="观看广告" />
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:ems="10"
+            android:gravity="top|start"
+            android:lineSpacingExtra="8sp"
+            android:singleLine="false"
+            android:textSize="14sp" />
+
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="15dp"
-        android:gravity="center"
-        android:text="广告回调信息:"
-        android:textSize="16dp" />
-
-    <ListView
-        android:id="@+id/callback_lv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:divider="@color/colorGray"
-        android:dividerHeight="1px" />
-
-</LinearLayout>
+</ScrollView>

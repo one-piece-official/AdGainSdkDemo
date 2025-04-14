@@ -13,6 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#17A0DD">
+
             <!-- 原生广告的小图 -->
             <ImageView
                 android:id="@+id/img_logo"
@@ -23,7 +24,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="5dp"
-                android:src="@mipmap/app_icon" />
+                android:src="@mipmap/ic_launcher" />
 
             <!-- 原生广告的标题 -->
             <TextView
@@ -66,7 +67,7 @@
                 android:layout_margin="5dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:src="@drawable/ad_dislike" />
+                android:src="@drawable/tt_dislike" />
 
         </RelativeLayout>
 
@@ -182,7 +183,7 @@
                 android:id="@+id/privacy_ll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
+                android:layout_gravity="bottom"
                 android:layout_marginBottom="3dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -222,7 +223,7 @@
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/btn_bg_creative"
                 android:gravity="center"
-                android:text="立即下载"
+                android:text="点击查看"
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
         </RelativeLayout>

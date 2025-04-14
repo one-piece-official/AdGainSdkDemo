@@ -1,99 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context="com.gt.android.demo.natives.NativeAdActivity">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="目前仅支持自渲染"
-        android:textSize="16sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="请选择广告网络"
-            android:textSize="16dp" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/spinner_bg">
-
-            <Spinner
-                android:id="@+id/id_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:spinnerMode="dropdown" />
-
-        </LinearLayout>
-    </LinearLayout>
+    android:scrollbars="none"
+    tools:context=".natives.NativeAdDemoActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="自渲染/模版渲染"
+            android:textSize="16sp" />
 
         <Button
-            android:id="@+id/unified_native_ad_button"
+            android:id="@+id/native_ad_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="NativeAD" />
+
+        <Button
+            android:id="@+id/native_ad_list_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:gravity="center"
-            android:text="简单接入事例" />
+            android:text="NativeADList" />
 
         <Button
-            android:id="@+id/unified_native_ad_list_button"
+            android:id="@+id/native_ad_recycle_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:gravity="center"
-            android:text="ListView接入事例" />
+            android:text="NativeADRecycle" />
 
         <Button
-            android:id="@+id/unified_native_ad_recycle_button"
+            android:id="@+id/native_draw_recycle_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:gravity="center"
-            android:text="RecycleView接入事例" />
-
-        <Button
-            android:id="@+id/unified_native_ad_draw_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:text="Draw信息流接入事例" />
+            android:text="Draw信息流" />
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

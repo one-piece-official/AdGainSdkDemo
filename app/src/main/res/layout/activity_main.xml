@@ -1,84 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.gt.android.demo.MainActivity">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <Button
+        android:id="@+id/start_leak_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="启动内存泄漏示例"
+        android:visibility="invisible"/>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/bt_splash"
-                android:layout_width="240dp"
-                android:layout_height="60dp"
-                android:gravity="center"
-                android:text="开屏广告" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/bt_interstitial"
-                android:layout_width="240dp"
-                android:layout_height="60dp"
-                android:gravity="center"
-                android:text="插屏广告" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/bt_native"
-                android:layout_width="240dp"
-                android:layout_height="60dp"
-                android:gravity="center"
-                android:text="原生广告" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/bt_device"
-                android:layout_width="240dp"
-                android:layout_height="60dp"
-                android:gravity="center"
-                android:text="基础工具" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

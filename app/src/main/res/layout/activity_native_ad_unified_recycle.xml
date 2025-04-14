@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.gt.android.demo.natives.NativeAdUnifiedRecycleActivity">
+    tools:context=".natives.NativeAdUnifiedRecycleDemoActivity">
 
-    <com.gt.android.demo.view.LoadMoreRecyclerView
+    <com.gt.demo.view.LoadMoreRecyclerView
         android:id="@+id/unified_native_ad_recycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

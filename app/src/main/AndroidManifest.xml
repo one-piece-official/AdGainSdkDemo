@@ -1,82 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.gt.android.demo">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-sdk tools:overrideLibrary="com.bun.miitmdid" />
-
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission
-        android:name="android.permission.READ_LOGS"
-        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name="com.gt.android.demo.MyApplication"
+        android:name="com.gt.demo.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
-        android:roundIcon="@mipmap/app_icon"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:debuggable="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:allowBackup">
+        android:usesCleartextTraffic="true"
+        tools:replace="android:allowBackup"
+        tools:ignore="HardcodedDebugMode">
 
         <activity
-            android:name="com.gt.android.demo.natives.NativeAdUnifiedRecycleActivity"
+            android:name="com.gt.demo.DeviceInfoDemoActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.gt.android.demo.natives.NativeAdUnifiedListActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.gt.android.demo.natives.NativeAdUnifiedActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.gt.android.demo.natives.NativeAdActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.gt.android.demo.natives.NativeAdDrawActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
-
-        <activity
-            android:name="com.gt.android.demo.InterstitialActivity"
-            android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.gt.android.demo.DeviceActivity"
+            android:name="com.gt.demo.natives.NativeAdDrawDemoActivity"
             android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.gt.demo.natives.NativeAdUnifiedListDemoActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gt.demo.natives.NativeAdUnifiedDemoActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gt.demo.natives.NativeAdDemoActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+
+<!--
+        android:screenOrientation="landscape"
+-->
+        <activity
+            android:name="com.gt.demo.InterstitialDemoActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gt.demo.RewardDemoActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.gt.demo.SplashDemoActivity"
             android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.gt.android.demo.SplashAdActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="true"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppSplashTheme" />
-
-        <activity
-            android:name="com.gt.android.demo.SplashActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateHidden">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -85,12 +80,21 @@
         </activity>
 
         <activity
-            android:name="com.gt.android.demo.MainActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:name="com.gt.demo.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
+            android:hardwareAccelerated="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+            android:theme="@style/AppSplashTheme"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            tools:ignore="DiscouragedApi" />
+
+        <activity
+            android:name="com.gt.demo.LeakActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

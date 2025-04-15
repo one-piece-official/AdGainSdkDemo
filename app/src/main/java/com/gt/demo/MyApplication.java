@@ -36,10 +36,10 @@ public class MyApplication extends MultiDexApplication {
         customData.put("custom_key", "custom_value");
 
         GTAdSdk.getInstance().init(this, new GtSdkConfig.Builder()
-                .appId("1105")       //必填，向广推商务获取
+                .appId("")       //必填，向广推商务获取
                 .userId("")  // 用户ID，有就填
-                .debugEnv(true) // 是否使用测试环境域名 请求广告，正式环境务必为false
-                .showLog(true)
+                .debugEnv(false) // 是否使用测试环境域名 请求广告，正式环境务必为false
+                .showLog(false)
                 .addCustomData(customData)  //自定义数据
                 .customController(new GtCustomController() {
                     // 是否允许SDK获取位置信息

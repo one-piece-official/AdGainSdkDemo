@@ -114,6 +114,17 @@ dependencies {
 
 }
 
+//task copyAAR {
+//    doLast {
+//        copy {
+//            from "../gt-sdk/build/outputs/aar"
+//            include "gt-sdk-release.aar"
+//            into '../AAR/'
+//            rename "gt-sdk-release.aar", "gt-sdk-" + mVersionName + ".aar"
+//        }
+//    }
+//}
+
 task buildZip(type: Zip) {
     from '../'
     include 'AAR/'

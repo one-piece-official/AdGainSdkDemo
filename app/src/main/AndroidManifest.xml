@@ -2,10 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-sdk tools:overrideLibrary="com.bun.miitmdid" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+
+    <!--    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
+     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:node="replace" />
+
+    -->
 
     <application
         android:name="com.gt.demo.MyApplication"
@@ -26,13 +41,11 @@
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.gt.demo.natives.NativeAdDrawDemoActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity"
             android:configChanges="orientation|screenSize"
@@ -43,13 +56,11 @@
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.gt.demo.natives.NativeAdUnifiedDemoActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.gt.demo.natives.NativeAdDemoActivity"
             android:configChanges="orientation|screenSize"
@@ -78,7 +89,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.gt.demo.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -94,7 +104,6 @@
             android:name="com.gt.demo.LeakActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
-
     </application>
 
 </manifest>

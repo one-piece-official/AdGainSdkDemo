@@ -36,11 +36,11 @@ public class MyApplication extends MultiDexApplication {
         customData.put("custom_key", "custom_value");
 
         GTAdSdk.getInstance().init(this, new GtSdkConfig.Builder()
-                .appId("1105")       //必填
-                .userId("") // 用户ID，有就填
+                .appId("1105")       //必填，向广推商务获取
+                .userId("")  // 用户ID，有就填
                 .debugEnv(true) // 是否使用测试环境域名 请求广告，正式环境务必为false
                 .showLog(true)
-                .addCustomData(customData) //自定义数据
+                .addCustomData(customData)  //自定义数据
                 .customController(new GtCustomController() {
                     // 是否允许SDK获取位置信息
                     @Override
@@ -53,11 +53,12 @@ public class MyApplication extends MultiDexApplication {
                     public boolean canUsePhoneState() {
                         return true;
                     }
+
                     // 是否允许SDK使用AndoridId
                     @Override
                     public boolean canUseAndroidId() {
-
                         return true;
+
                     }
                     // 是否允许SDK写外部数据存储
                     @Override

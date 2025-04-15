@@ -96,7 +96,7 @@ public class MainFragment extends Fragment implements SplashAdListener {
                 .setWidth(PxUtils.getRealMetrics(getMyActivity()).widthPixels)
                 .setHeight(PxUtils.getRealMetrics(getMyActivity()).heightPixels)
                 .setExtOption(options)
-                .setSplashAdLoadTimeoutMs(5 * 1000) // 5 seconds
+                .setSplashAdLoadTimeoutMs(5 * 1000)
                 .build();
 
         splashAd = new SplashAd(adRequest, this);
@@ -110,6 +110,7 @@ public class MainFragment extends Fragment implements SplashAdListener {
 
     private void showSplashAd() {
         Log.d(Constants.LOG_TAG, "---------showAd---------" + splash_code_id);
+        // 展示前先判断广告是否ready
         if (splashAd != null && splashAd.isReady()) {
             splashAd.showAd(splashLY);
         } else {

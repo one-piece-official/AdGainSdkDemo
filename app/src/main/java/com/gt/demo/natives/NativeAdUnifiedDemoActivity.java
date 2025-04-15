@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements View.OnClickListener, NativeAdLoadListener {
+public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewGroup adContainer;
 
@@ -38,8 +38,6 @@ public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements Vi
     private LinearLayout IdLayout;
 
     private NativeUnifiedAd nativeAd;
-
-    private final Map<String, NativeUnifiedAd> nativeUnifiedAdMap = new HashMap<>();
 
     private final Map<String, List<NativeAdData>> unifiedADDataMap = new HashMap<>();
 
@@ -68,52 +66,66 @@ public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements Vi
     public void onClick(View v) {
         Button button = (Button) v;
         String text = (String) button.getText();
-        String placementId = text.substring(text.indexOf("-") + 1);
+        String adUnitID = text.substring(text.indexOf("-") + 1);
 
         Log.d(Constants.LOG_TAG, "---------onClick---------" + text);
 
         if (text.startsWith("native LOAD-")) {
-            loadAd(placementId);
+            loadAd(adUnitID);
 
         } else {
-            showAd(placementId);
+            showAd(adUnitID);
         }
     }
 
     private void loadAd(String adUnitID) {
 
-        nativeAd = nativeUnifiedAdMap.get(adUnitID);
-
         Log.d(Constants.LOG_TAG, (nativeAd == null) + " native ---------loadAd---------" + adUnitID);
 
-        Map<String, Object> options = new HashMap<>();
-        options.put("test_extra_key", "test_extra_value");
+        if (null == nativeAd) {
+            Map<String, Object> options = new HashMap<>();
+            options.put("test_extra_key", "test_extra_value");
+            AdRequest adRequest = new AdRequest
+                    .Builder()
+                    .setAdUnitID(adUnitID) // 设置广告位id
+                    .setExtOption(options) // 自定义参数
+                    .build();
+            // 创建广告对象
+            nativeAd = new NativeUnifiedAd(adRequest, new NativeAdLoadListener() {
+                @Override
+                public void onAdError(String adUnitID, AdError error) {
+                    Log.d(Constants.LOG_TAG, "----------onAdError----------:" + error.toString() + ":" + adUnitID);
+                    logMessage("onAdError() called with: error = [" + error + "], adUnitID = [" + adUnitID + "]");
+                }
 
-        AdRequest adRequest = new AdRequest
-                .Builder()
-                .setAdUnitID(adUnitID)
-                .setExtOption(options)
-                .build();
+                @Override
+                public void onAdLoad(String adUnitID, List<NativeAdData> adDataList) {
+                    logMessage("onAdLoad [ " + adUnitID + " ]  ");
 
-        nativeAd = new NativeUnifiedAd(adRequest, this);
+                    if (adDataList != null && !adDataList.isEmpty()) {
+                        Log.d(Constants.LOG_TAG, "onAdLoad [ " + adUnitID + " ]  adUnitID = " + adUnitID + "   adDataList = " + adDataList);
 
-        nativeUnifiedAdMap.put(adUnitID, nativeAd);
-
+                        unifiedADDataMap.put(adUnitID, adDataList);
+                    }
+                }
+            });
+        }
+        // 请求广告
         nativeAd.loadAd();
         logMessage("loadAd [ " + adUnitID + " ]");
     }
 
-    private void showAd(final String unitid) {
-        Log.d(Constants.LOG_TAG, "---------showAd---------" + unitid);
+    private void showAd(final String adUnitID) {
+        Log.d(Constants.LOG_TAG, "---------showAd---------" + adUnitID);
 
-        List<NativeAdData> unifiedADDataList = unifiedADDataMap.get(unitid);
+        List<NativeAdData> unifiedADDataList = unifiedADDataMap.get(adUnitID);
 
         if (unifiedADDataList != null && !unifiedADDataList.isEmpty()) {
 
             NativeAdData nativeAdData = unifiedADDataList.get(0);
 
             View view = buildView(nativeAdData);
-
+            // 媒体最终将要展示广告的容器
             if (adContainer != null) {
                 adContainer.removeAllViews();
                 adContainer.addView(view);
@@ -159,7 +171,7 @@ public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements Vi
         //媒体自渲染的View
         NativeDemoRender adRender = new NativeDemoRender(this);
 
-        View view = adRender.renderAdView(nativeAdData, new NativeAdEventListener() {
+        return adRender.renderAdView(nativeAdData, new NativeAdEventListener() {
 
             @Override
             public void onAdExposed() {
@@ -179,14 +191,13 @@ public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements Vi
                 logMessage("onAdRenderFail() called with: error = [" + error + "]");
             }
         });
-
-        return view;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
 
+        // 原生广告单元的销毁
         for (List<NativeAdData> adDataList : unifiedADDataMap.values()) {
             if (adDataList != null && !adDataList.isEmpty()) {
                 for (NativeAdData ad : adDataList) {
@@ -197,17 +208,17 @@ public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements Vi
             }
         }
 
-        for (NativeUnifiedAd unifiedAd : nativeUnifiedAdMap.values()) {
-            if (unifiedAd != null) {
-                unifiedAd.destroyAd();
-            }
+        // 原生请求广告对象的销毁
+        if (nativeAd != null) {
+            nativeAd.destroyAd();
+            nativeAd = null;
         }
     }
 
     private void updatePlacement() {
 
         try {
-            String adSlotId = Constants.NATIVE_ADUNITID;
+            String adUnitID = Constants.NATIVE_ADUNITID;
 
             LinearLayout ll = new LinearLayout(this);
             ll.setOrientation(LinearLayout.HORIZONTAL);
@@ -219,7 +230,7 @@ public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements Vi
             layoutParams.weight = 1;
             loadB.setLayoutParams(layoutParams);
             loadB.setOnClickListener(this);
-            loadB.setText("native LOAD-" + adSlotId);
+            loadB.setText("native LOAD-" + adUnitID);
             loadB.setTextSize(12);
             ll.addView(loadB);
 
@@ -229,30 +240,13 @@ public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements Vi
             params.weight = 1;
             playB.setLayoutParams(params);
             playB.setOnClickListener(this);
-            playB.setText("native SHOW-" + adSlotId);
+            playB.setText("native SHOW-" + adUnitID);
             playB.setTextSize(12);
             ll.addView(playB);
 
             IdLayout.addView(ll);
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void onAdError(String codeId, AdError error) {
-        Log.d(Constants.LOG_TAG, "----------onAdError----------:" + error.toString() + ":" + codeId);
-        logMessage("onAdError() called with: error = [" + error + "], codeId = [" + codeId + "]");
-    }
-
-    @Override
-    public void onAdLoad(String codeId, List<NativeAdData> adDataList) {
-        logMessage("onAdLoad [ " + codeId + " ]  ");
-
-        if (adDataList != null && !adDataList.isEmpty()) {
-            Log.d(Constants.LOG_TAG, "onAdLoad [ " + codeId + " ]  codeId = " + codeId + "   adDataList = " + adDataList);
-
-            unifiedADDataMap.put(codeId, adDataList);
         }
     }
 

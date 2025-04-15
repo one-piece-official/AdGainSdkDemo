@@ -2,7 +2,6 @@ package com.gt.demo;
 
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -23,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class SplashDemoActivity extends AppCompatActivity implements SplashAdListener {
+public class SplashDemoActivity extends AppCompatActivity {
 
     /**
      * 当设置开屏可点击时，需要等待跳转页面关闭后，再切换至您的主窗口。
@@ -33,6 +32,59 @@ public class SplashDemoActivity extends AppCompatActivity implements SplashAdLis
     private SplashAd splashAd;
     private ArrayList<String> logs;
     private ViewGroup mViewGroup;
+
+    private final SplashAdListener mSplashAdListener = new SplashAdListener() {
+
+        // 开屏广告加载成功通知，加载成功后才可以展示广告
+        @Override
+        public void onSplashAdLoadSuccess(String adUnitID, GTAdInfo adInfo) {
+            Log.d(Constants.LOG_TAG, "----------onSplashAdLoadSuccess----------" + splashAd.isReady() + ":" + adUnitID   + "  adInfo = " + adInfo);
+            logs.add("onSplashAdLoadSuccess:" + splashAd.isReady());
+
+            // 展示前先判断广告是否ready
+            if (splashAd != null && splashAd.isReady()) {
+                // 执行展示广告
+                splashAd.showAd(mViewGroup);
+            }
+        }
+
+        // 开屏广告加载失败通知
+        @Override
+        public void onSplashAdLoadFail(String adUnitID, AdError error) {
+            Log.d(Constants.LOG_TAG, "----------onSplashAdLoadFail----------" + error.toString() + ":" + adUnitID);
+            logs.add("onSplashAdLoadFail: " + error + " placementId: " + adUnitID);
+            jumpMainActivity();
+        }
+
+        @Override
+        public void onSplashAdShow(String adUnitID, GTAdInfo adInfo) {
+            Log.d(Constants.LOG_TAG, "----------onSplashAdShow----------" + adUnitID  + "  adInfo = " + adInfo);
+            logs.add("onSplashAdShow");
+        }
+
+        // 开屏广告展示错误
+        @Override
+        public void onSplashAdShowError(String adUnitID, AdError error) {
+            Log.d(Constants.LOG_TAG, "----------onSplashAdShowError----------" + error.toString() + ":" + adUnitID);
+            logs.add("onSplashAdShowError: " + error + " placementId: " + adUnitID);
+            jumpMainActivity();
+        }
+
+        // 开屏广告被用户点击通知
+        @Override
+        public void onSplashAdClick(String adUnitID, GTAdInfo adInfo) {
+            Log.d(Constants.LOG_TAG, "----------onSplashAdClick----------" + adInfo  + "  adInfo = " + adInfo);
+            logs.add("onSplashAdClick");
+        }
+
+        // 开屏广告关闭通知
+        @Override
+        public void onSplashAdClose(String adUnitID, GTAdInfo adInfo) {
+            Log.d(Constants.LOG_TAG, "----------onSplashAdClose----------" + adUnitID  + "  adInfo = " + adInfo);
+            logs.add("onSplashAdClose");
+            jumpWhenCanClick();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +96,6 @@ public class SplashDemoActivity extends AppCompatActivity implements SplashAdLis
         logs = new ArrayList<>();
         logs.add("init SDK appId :" + GTAdSdk.getInstance().getAppId());
 
-        SharedPreferences sharedPreferences = getSharedPreferences("setting", 0);
-
         Map<String, Object> options = new HashMap<>();
         options.put("user_id", "");
         options.put("splash_self_key", "splash_self_value");
@@ -56,11 +106,11 @@ public class SplashDemoActivity extends AppCompatActivity implements SplashAdLis
                 .setWidth(PxUtils.getDeviceWidthInPixel(this)) // 设置需要的广告视图宽度
                 .setHeight(PxUtils.getDeviceHeightInPixel(this) - PxUtils.dpToPx(this,100)) // 设置需要的广告视图高度
                 .setExtOption(options) // 设置透传的自定义数据
-                .setSplashAdLoadTimeoutMs(5 * 1000) // 设置开屏广告超时时间（单位：ms），如果这个时间段内广告加载失败会给出超时错误回调
+                .setSplashAdLoadTimeoutMs(5 * 1000) // 设置开屏广告加载的超时时间（单位：ms），如果这个时间段内广告加载失败会给出超时错误回调
                 .build();
-        // 创建开屏AD API对象
-        splashAd = new SplashAd(adRequest, this);
-        // 执行广告加载，加载结果通过 {@link #onSplashAdLoadSuccess}  或 {@link #onSplashAdLoadFail} 给出
+        // 创建开屏AD API对象，监听回调在这里设置
+        splashAd = new SplashAd(adRequest, mSplashAdListener);
+        // 加载广告
         splashAd.loadAd();
     }
 
@@ -101,55 +151,6 @@ public class SplashDemoActivity extends AppCompatActivity implements SplashAdLis
             jumpWhenCanClick();
         }
         canJumpImmediately = true;
-    }
-
-    @Override
-    public void onSplashAdShow(String codeId, GTAdInfo adInfo) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdShow----------" + codeId  + "  adInfo = " + adInfo);
-        logs.add("onSplashAdShow");
-    }
-
-    // 开屏广告加载成功通知，加载成功后才可以展示广告
-    @Override
-    public void onSplashAdLoadSuccess(String codeId, GTAdInfo adInfo) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdLoadSuccess----------" + splashAd.isReady() + ":" + codeId   + "  adInfo = " + adInfo);
-        logs.add("onSplashAdLoadSuccess:" + splashAd.isReady());
-
-        if (splashAd != null && splashAd.isReady()) {
-            // 执行展示广告
-            splashAd.showAd(mViewGroup);
-        }
-    }
-
-    // 开屏广告加载失败通知
-    @Override
-    public void onSplashAdLoadFail(String codeId, AdError error) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdLoadFail----------" + error.toString() + ":" + codeId);
-        logs.add("onSplashAdLoadFail: " + error + " placementId: " + codeId);
-        jumpMainActivity();
-    }
-
-    // 开屏广告展示错误
-    @Override
-    public void onSplashAdShowError(String codeId, AdError error) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdShowError----------" + error.toString() + ":" + codeId);
-        logs.add("onSplashAdShowError: " + error + " placementId: " + codeId);
-        jumpMainActivity();
-    }
-
-    // 开屏广告被用户点击通知
-    @Override
-    public void onSplashAdClick(String codeId, GTAdInfo adInfo) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdClick----------" + codeId  + "  adInfo = " + adInfo);
-        logs.add("onSplashAdClick");
-    }
-
-    // 开屏广告关闭通知
-    @Override
-    public void onSplashAdClose(String codeId, GTAdInfo adInfo) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdClose----------" + codeId  + "  adInfo = " + adInfo);
-        logs.add("onSplashAdClose");
-        jumpWhenCanClick();
     }
 
     @Override

@@ -50,6 +50,8 @@ public class NativeAdUnifiedRecycleDemoActivity extends AppCompatActivity {
 
     private NativeUnifiedAd nativeUnifiedAd;
 
+    private String userID;
+
     private String codeId = Constants.NATIVE_ADUNITID;
 
     private List<NativeAdData> mData;
@@ -102,10 +104,8 @@ public class NativeAdUnifiedRecycleDemoActivity extends AppCompatActivity {
 
     private void loadRecyclerAd() {
         Log.d(Constants.LOG_TAG, "-----------loadListAd-----------");
-
         Map<String, Object> options = new HashMap<>();
-        options.put("user_id", "1111");
-
+        options.put("user_id", userID);
         AdRequest adRequest = new AdRequest.Builder().setAdUnitID(codeId).setExtOption(options).build();
 
         if (nativeUnifiedAd == null) {

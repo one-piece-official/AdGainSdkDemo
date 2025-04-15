@@ -43,7 +43,7 @@
                     android:ellipsize="end"
                     android:lineSpacingMultiplier="1.1"
                     android:maxLines="2"
-                    android:text="80后的回忆！经典三国完美复刻，安卓用户的福利"
+                    android:text="广告描述文案，广告描述文案，广告描述文案，广告描述文案"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
@@ -108,7 +108,7 @@
                 android:layout_toRightOf="@+id/channel_ad_logo"
                 android:gravity="center_vertical"
                 android:singleLine="true"
-                android:text="计策略，才真三国！"
+                android:text="广告标题"
                 android:textSize="18sp" />
 
             <!-- 原生广告的点击按钮 -->

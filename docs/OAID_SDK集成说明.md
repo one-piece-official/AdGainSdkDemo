@@ -2,8 +2,7 @@
 
 ## 1. Android 10 OAID 描述
 
-> Android 10 无法通过常规方式获取IMEI等设备ID，影响广告的正常加载、展示等业务，开发者需要接入 OAID SDK 才可以正常加载广告。建议开发者优先集成OAID，集成方式可以参看 MSA联盟官网地址: [http://www.msa-alliance.cn/col.jsp?id=120](http://www.msa-alliance.cn/col.jsp?id=120)
-> 
+> Android 10 无法通过常规方式获取IMEI等设备ID，对广告的加载、展示等业务有一定影响。建议开发者集成OAID，并在GTAdSdk设置 `customController` 时，为SDK提供OAID。详细的集成方式可以参看 MSA联盟官网（[http://www.msa-alliance.cn/col.jsp?id=120](http://www.msa-alliance.cn/col.jsp?id=120)）提供的开发者文档。
 
 
 ## 2. 引入依赖

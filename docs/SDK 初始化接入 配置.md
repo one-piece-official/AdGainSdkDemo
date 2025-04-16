@@ -4,7 +4,7 @@
 
 * 创建应用并拿到SDK所需的参数AppId、广告位AdUnitID 等,向广推商务获取
 * 把 gt-release.aar 放入app的libs工程中
-* SDK 支持 Android API Level 19+
+* SDK 支持 Android API Level 21+
 
 ## 2. Demo示例
 

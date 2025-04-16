@@ -38,7 +38,7 @@ public class MyApplication extends MultiDexApplication {
         GTAdSdk.getInstance().init(this, new GtSdkConfig.Builder()
                 .appId("1105")       //必填，向广推商务获取
                 .userId("")  // 用户ID，有就填
-                .debugEnv(false) // 是否使用测试环境域名 请求广告，正式环境务必为false
+                .debugEnv(true) // 是否使用测试环境域名 请求广告，正式环境务必为false
                 .showLog(true)
                 .addCustomData(customData)  //自定义数据
                 .customController(new GtCustomController() {

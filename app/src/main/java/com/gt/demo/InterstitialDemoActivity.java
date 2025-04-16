@@ -3,8 +3,6 @@ package com.gt.demo;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
@@ -58,14 +56,14 @@ public class InterstitialDemoActivity extends AppCompatActivity implements Inter
     public void onClick(View v) {
         Button button = (Button) v;
         String text = (String) button.getText();
-        String placementId = text.substring(text.indexOf("-") + 1);
+        String adUnitID = text.substring(text.indexOf("-") + 1);
         Log.d(Constants.LOG_TAG, "---------onClick---------" + text);
 
         if (text.startsWith("inter LOAD-")) {
-            loadAd(placementId);
+            loadAd(adUnitID);
 
         } else {
-            showAd(placementId);
+            showAd(adUnitID);
         }
     }
 
@@ -90,8 +88,8 @@ public class InterstitialDemoActivity extends AppCompatActivity implements Inter
         logMessage("loadAd [ " + adUnitid + " ]");
     }
 
-    private void showAd(String codeId) {
-        Log.d(Constants.LOG_TAG, "---------showAd---------" + codeId);
+    private void showAd(String adUnitID) {
+        Log.d(Constants.LOG_TAG, "---------showAd---------" + adUnitID);
 
         if (mInterstitialAd != null && mInterstitialAd.isReady()) {
             mInterstitialAd.showAd(this);
@@ -208,13 +206,13 @@ public class InterstitialDemoActivity extends AppCompatActivity implements Inter
     @Override
     public void onInterstitialAdLoadError(String adUnitID, AdError error) {
         Log.d(Constants.LOG_TAG, "----------onInterstitialAdLoadError----------" + error.toString() + ":" + adUnitID);
-        logMessage("onInterstitialAdLoadError() called with: error = [" + error + "], placementId = [" + adUnitID + "]");
+        logMessage("onInterstitialAdLoadError() called with: error = [" + error + "], adUnitID = [" + adUnitID + "]");
     }
 
     @Override
     public void onInterstitialAdShowError(String adUnitID, AdError error) {
         Log.d(Constants.LOG_TAG, "----------onInterstitialAdShowError----------" + error.toString() + ":" + adUnitID);
-        logMessage("onInterstitialAdShowError() called with: error = [" + error + "], placementId = [" + adUnitID + "]");
+        logMessage("onInterstitialAdShowError() called with: error = [" + error + "], adUnitID = [" + adUnitID + "]");
     }
 
     @Override

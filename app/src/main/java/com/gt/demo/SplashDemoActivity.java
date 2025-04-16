@@ -52,7 +52,7 @@ public class SplashDemoActivity extends AppCompatActivity {
         @Override
         public void onSplashAdLoadFail(String adUnitID, AdError error) {
             Log.d(Constants.LOG_TAG, "----------onSplashAdLoadFail----------" + error.toString() + ":" + adUnitID);
-            logs.add("onSplashAdLoadFail: " + error + " placementId: " + adUnitID);
+            logs.add("onSplashAdLoadFail: " + error + " adUnitID: " + adUnitID);
             jumpMainActivity();
         }
 
@@ -66,7 +66,7 @@ public class SplashDemoActivity extends AppCompatActivity {
         @Override
         public void onSplashAdShowError(String adUnitID, AdError error) {
             Log.d(Constants.LOG_TAG, "----------onSplashAdShowError----------" + error.toString() + ":" + adUnitID);
-            logs.add("onSplashAdShowError: " + error + " placementId: " + adUnitID);
+            logs.add("onSplashAdShowError: " + error + " adUnitID: " + adUnitID);
             jumpMainActivity();
         }
 

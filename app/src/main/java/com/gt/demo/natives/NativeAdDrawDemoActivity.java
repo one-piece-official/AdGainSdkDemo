@@ -47,14 +47,13 @@ import java.util.Map;
 public class NativeAdDrawDemoActivity extends AppCompatActivity {
     private static final String TAG = "NativeAdDrawActivity";
     private String userID;
-    private String codeId = Constants.NATIVE_ADUNITID;
     private RecyclerView mRecyclerView;
     private ViewPagerLayoutManager mLayoutManager;
     private DrawRecyclerAdapter mRecyclerAdapter;
     private List<TestItem> mDrawList = new ArrayList<>();
     private int adWidth, adHeight;
-    private int[] images = {R.mipmap.video11, R.mipmap.video12, R.mipmap.video13, R.mipmap.video14, R.mipmap.video_2};
-    private int[] videos = {R.raw.video11, R.raw.video12, R.raw.video13, R.raw.video14, R.raw.video_2};
+    private int[] images = {R.drawable.v1, R.drawable.v2, R.drawable.v3, R.drawable.v4, R.drawable.v5};
+    private int[] videos = {R.raw.v1, R.raw.v2, R.raw.v3, R.raw.v4, R.raw.v5};
     private NativeUnifiedAd nativeUnifiedAd;
 
     @Override
@@ -112,18 +111,19 @@ public class NativeAdDrawDemoActivity extends AppCompatActivity {
         Log.d(Constants.LOG_TAG, "-----------loadDrawAd-----------");
         Map<String, Object> options = new HashMap<>();
         options.put("user_id", userID);
-        AdRequest adRequest = new AdRequest.Builder().setAdUnitID(codeId).setExtOption(options).build();
+        String adUnitID = Constants.NATIVE_ADUNITID;
+        AdRequest adRequest = new AdRequest.Builder().setAdUnitID(adUnitID).setExtOption(options).build();
 
         if (nativeUnifiedAd == null) {
             nativeUnifiedAd = new NativeUnifiedAd(adRequest, new NativeAdLoadListener() {
                 @Override
-                public void onAdError(String codeId, AdError error) {
-                    Log.d(Constants.LOG_TAG, "----------onAdError----------:" + error.toString() + ":" + codeId);
+                public void onAdError(String adUnitID, AdError error) {
+                    Log.d(Constants.LOG_TAG, "----------onAdError----------:" + error.toString() + ":" + adUnitID);
                     Toast.makeText(NativeAdDrawDemoActivity.this, "onError:" + error.toString(), Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
-                public void onAdLoad(String codeId, List<NativeAdData> adDataList) {
+                public void onAdLoad(String adUnitID, List<NativeAdData> adDataList) {
 
                     if (adDataList != null && !adDataList.isEmpty()) {
 
@@ -252,7 +252,7 @@ public class NativeAdDrawDemoActivity extends AppCompatActivity {
                 NormalViewHolder normalViewHolder = (NormalViewHolder) viewHolder;
                 normalViewHolder.videoView.setVideoURI(Uri.parse("android.resource://" + mContext.getPackageName() + "/" + item.normalVideo.videoId));
                 normalViewHolder.videoThumb.setImageResource(item.normalVideo.imgId);
-                Glide.with(mContext).load(R.drawable.header_icon).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(normalViewHolder.authorIcon);
+                Glide.with(mContext).load(R.drawable.avatar).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(normalViewHolder.authorIcon);
                 normalViewHolder.videoThumb.setVisibility(View.VISIBLE);
 
             } else if (viewHolder instanceof UnifiedAdViewHolder) {

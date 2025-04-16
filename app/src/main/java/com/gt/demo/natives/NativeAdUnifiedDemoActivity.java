@@ -39,7 +39,7 @@ public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements Vi
 
     private NativeUnifiedAd nativeAd;
 
-    private final Map<String, List<NativeAdData>> unifiedADDataMap = new HashMap<>();
+    private List<NativeAdData> currentAdDataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,8 +104,7 @@ public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements Vi
 
                     if (adDataList != null && !adDataList.isEmpty()) {
                         Log.d(Constants.LOG_TAG, "onAdLoad [ " + adUnitID + " ]  adUnitID = " + adUnitID + "   adDataList = " + adDataList);
-
-                        unifiedADDataMap.put(adUnitID, adDataList);
+                        currentAdDataList = adDataList;
                     }
                 }
             });
@@ -118,7 +117,7 @@ public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements Vi
     private void showAd(final String adUnitID) {
         Log.d(Constants.LOG_TAG, "---------showAd---------" + adUnitID);
 
-        List<NativeAdData> unifiedADDataList = unifiedADDataMap.get(adUnitID);
+        List<NativeAdData> unifiedADDataList = currentAdDataList;
 
         if (unifiedADDataList != null && !unifiedADDataList.isEmpty()) {
 
@@ -196,18 +195,6 @@ public class NativeAdUnifiedDemoActivity extends AppCompatActivity implements Vi
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-        // 原生广告单元的销毁
-        for (List<NativeAdData> adDataList : unifiedADDataMap.values()) {
-            if (adDataList != null && !adDataList.isEmpty()) {
-                for (NativeAdData ad : adDataList) {
-                    if (ad != null) {
-                        ad.destroy();
-                    }
-                }
-            }
-        }
-
         // 原生请求广告对象的销毁
         if (nativeAd != null) {
             nativeAd.destroyAd();

@@ -50,15 +50,9 @@ public class NativeAdUnifiedRecycleDemoActivity extends AppCompatActivity {
 
     private NativeUnifiedAd nativeUnifiedAd;
 
-    private String userID;
-
-    private String codeId = Constants.NATIVE_ADUNITID;
-
     private List<NativeAdData> mData;
 
-    private int adWidth;
-
-    private Handler mHandler = new Handler(Looper.getMainLooper());
+    private final Handler mHandler = new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +65,7 @@ public class NativeAdUnifiedRecycleDemoActivity extends AppCompatActivity {
     private void updatePlacement() {
 
         SharedPreferences sharedPreferences = this.getSharedPreferences("setting", 0);
-        adWidth = screenWidthAsIntDips(this) - 20;
+        int adWidth = screenWidthAsIntDips(this) - 20;
         Log.d(Constants.LOG_TAG, "---------screenWidthAsIntDips---------" + adWidth);
     }
 
@@ -105,14 +99,15 @@ public class NativeAdUnifiedRecycleDemoActivity extends AppCompatActivity {
     private void loadRecyclerAd() {
         Log.d(Constants.LOG_TAG, "-----------loadListAd-----------");
         Map<String, Object> options = new HashMap<>();
-        options.put("user_id", userID);
-        AdRequest adRequest = new AdRequest.Builder().setAdUnitID(codeId).setExtOption(options).build();
+        options.put("user_id", "123456");
+        String adUnitID = Constants.NATIVE_ADUNITID;
+        AdRequest adRequest = new AdRequest.Builder().setAdUnitID(adUnitID).setExtOption(options).build();
 
         if (nativeUnifiedAd == null) {
             nativeUnifiedAd = new NativeUnifiedAd(adRequest, new NativeAdLoadListener() {
                 @Override
-                public void onAdError(String codeId, AdError error) {
-                    Log.d(Constants.LOG_TAG, "----------onAdError----------:" + error.toString() + ":" + codeId);
+                public void onAdError(String adUnitID, AdError error) {
+                    Log.d(Constants.LOG_TAG, "----------onAdError----------:" + error.toString() + ":" + adUnitID);
                     Toast.makeText(NativeAdUnifiedRecycleDemoActivity.this, "onError:" + error.toString(), Toast.LENGTH_SHORT).show();
                     if (mRecyclerView != null) {
                         mRecyclerView.setLoadingFinish();
@@ -120,7 +115,7 @@ public class NativeAdUnifiedRecycleDemoActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onAdLoad(String codeId, List<NativeAdData> adDataList) {
+                public void onAdLoad(String adUnitID, List<NativeAdData> adDataList) {
                     if (mRecyclerView != null) {
                         mRecyclerView.setLoadingFinish();
                     }
@@ -256,7 +251,7 @@ public class NativeAdUnifiedRecycleDemoActivity extends AppCompatActivity {
                 }
             });
             //设置广告交互监听
-            View adView = adViewHolder.adRender.renderAdView(nativeAdData, new NativeAdEventListener() {
+            return adViewHolder.adRender.renderAdView(nativeAdData, new NativeAdEventListener() {
                 @Override
                 public void onAdExposed() {
                     Log.d(Constants.LOG_TAG, "----------onAdExposed----------");
@@ -272,7 +267,6 @@ public class NativeAdUnifiedRecycleDemoActivity extends AppCompatActivity {
                     Log.d(Constants.LOG_TAG, "----------onAdRenderFail----------:" + error.toString());
                 }
             });
-            return adView;
         }
 
         @Override

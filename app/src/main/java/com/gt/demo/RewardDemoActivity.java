@@ -1,11 +1,7 @@
 package com.gt.demo;
 
-import android.annotation.SuppressLint;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +11,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.gt.sdk.api.AdError;
@@ -61,14 +56,14 @@ public class RewardDemoActivity extends AppCompatActivity implements RewardAdLis
     public void onClick(View v) {
         Button button = (Button) v;
         String text = (String) button.getText();
-        String placementId = text.substring(text.indexOf("-") + 1);
+        String adUnitID = text.substring(text.indexOf("-") + 1);
         Log.d(Constants.LOG_TAG, "reward ---------onClick---------" + text);
 
         if (text.startsWith("reward LOAD-")) {
-            loadAd(placementId);
+            loadAd(adUnitID);
 
         } else {
-            showAd(placementId);
+            showAd(adUnitID);
         }
     }
 
@@ -95,8 +90,8 @@ public class RewardDemoActivity extends AppCompatActivity implements RewardAdLis
 
     }
 
-    private void showAd(String codeId) {
-        Log.d(Constants.LOG_TAG, "reward ---------showAd---------" + codeId);
+    private void showAd(String adUnitID) {
+        Log.d(Constants.LOG_TAG, "reward ---------showAd---------" + adUnitID);
 
         if (mRewardAd != null && mRewardAd.isReady()) {
             mRewardAd.showAd(null);
@@ -211,13 +206,13 @@ public class RewardDemoActivity extends AppCompatActivity implements RewardAdLis
     @Override
     public void onRewardAdLoadError(String adUnitID, AdError error) {
         Log.d(Constants.LOG_TAG, "----------onRewardAdLoadError----------" + error.toString() + ":" + adUnitID);
-        logMessage("onRewardAdLoadError() called with: error = [" + error + "], placementId = [" + adUnitID + "]");
+        logMessage("onRewardAdLoadError() called with: error = [" + error + "], adUnitID = [" + adUnitID + "]");
     }
 
     @Override
     public void onRewardAdShowError(String adUnitID, AdError error) {
         Log.d(Constants.LOG_TAG, "----------onRewardAdShowError----------" + error.toString() + ":" + adUnitID);
-        logMessage("onRewardAdShowError() called with: error = [" + error + "], placementId = [" + adUnitID + "]");
+        logMessage("onRewardAdShowError() called with: error = [" + error + "], adUnitID = [" + adUnitID + "]");
     }
 
     @Override

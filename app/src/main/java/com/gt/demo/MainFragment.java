@@ -38,7 +38,7 @@ public class MainFragment extends Fragment implements SplashAdListener {
     private TextView logTextView;
     private String[] mLogs;
     private Activity mActivity;
-    String splash_code_id = Constants.SPLASH_ADUNITID;
+    String splashAdUnitId = Constants.SPLASH_ADUNITID;
     private ViewGroup splashLY;
 
     private void initViewGroup(Activity activity) {
@@ -87,12 +87,12 @@ public class MainFragment extends Fragment implements SplashAdListener {
     private void LoadSplashAd() {
         initViewGroup(getMyActivity());
 
-        Log.d(Constants.LOG_TAG, (splashAd == null) + "---------LoadSplashAd---------" + splash_code_id);
+        Log.d(Constants.LOG_TAG, (splashAd == null) + "---------LoadSplashAd---------" + splashAdUnitId);
 
         Map<String, Object> options = new HashMap<>();
         options.put("user_id", "");
         AdRequest adRequest = new AdRequest.Builder()
-                .setAdUnitID(splash_code_id)
+                .setAdUnitID(splashAdUnitId)
                 .setWidth(PxUtils.getRealMetrics(getMyActivity()).widthPixels)
                 .setHeight(PxUtils.getRealMetrics(getMyActivity()).heightPixels)
                 .setExtOption(options)
@@ -104,12 +104,12 @@ public class MainFragment extends Fragment implements SplashAdListener {
         Log.d(Constants.LOG_TAG, "------------start--------loadAd-------" + System.currentTimeMillis());
         splashAd.loadAd();
 
-        logMessage("start load splash " + splash_code_id);
+        logMessage("start load splash " + splashAdUnitId);
 
     }
 
     private void showSplashAd() {
-        Log.d(Constants.LOG_TAG, "---------showAd---------" + splash_code_id);
+        Log.d(Constants.LOG_TAG, "---------showAd---------" + splashAdUnitId);
         // 展示前先判断广告是否ready
         if (splashAd != null && splashAd.isReady()) {
             splashAd.showAd(splashLY);
@@ -210,15 +210,15 @@ public class MainFragment extends Fragment implements SplashAdListener {
     }
 
     @Override
-    public void onSplashAdLoadSuccess(String codeId, GTAdInfo adInfo) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdLoadSuccess----------" + codeId  + "  adInfo = " + adInfo);
+    public void onSplashAdLoadSuccess(String adUnitID, GTAdInfo adInfo) {
+        Log.d(Constants.LOG_TAG, "----------onSplashAdLoadSuccess----------" + adUnitID  + "  adInfo = " + adInfo);
         logMessage("onSplashAdLoadSuccess");
     }
 
     @Override
-    public void onSplashAdLoadFail(String codeId, AdError error) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdLoadFail----------" + error.toString() + ":" + codeId);
-        logMessage("onSplashAdFailToLoad:" + error + " placementId: " + codeId);
+    public void onSplashAdLoadFail(String adUnitID, AdError error) {
+        Log.d(Constants.LOG_TAG, "----------onSplashAdLoadFail----------" + error.toString() + ":" + adUnitID);
+        logMessage("onSplashAdFailToLoad:" + error + " adUnitID: " + adUnitID);
         if (splashLY != null) {
             splashLY.removeAllViews();
             splashLY.setVisibility(View.GONE);
@@ -226,15 +226,15 @@ public class MainFragment extends Fragment implements SplashAdListener {
     }
 
     @Override
-    public void onSplashAdShow(String codeId, GTAdInfo adInfo) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdShow----------" + codeId + "  adInfo = " + adInfo);
+    public void onSplashAdShow(String adUnitID, GTAdInfo adInfo) {
+        Log.d(Constants.LOG_TAG, "----------onSplashAdShow----------" + adUnitID + "  adInfo = " + adInfo);
         logMessage("onSplashAdShow");
     }
 
     @Override
-    public void onSplashAdShowError(String codeId, AdError error) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdShowError----------" + error.toString() + ":" + codeId);
-        logMessage("onSplashAdShowError:" + error + " placementId: " + codeId);
+    public void onSplashAdShowError(String adUnitID, AdError error) {
+        Log.d(Constants.LOG_TAG, "----------onSplashAdShowError----------" + error.toString() + ":" + adUnitID);
+        logMessage("onSplashAdShowError:" + error + " adUnitID: " + adUnitID);
         if (splashLY != null) {
             splashLY.removeAllViews();
             splashLY.setVisibility(View.GONE);
@@ -242,14 +242,14 @@ public class MainFragment extends Fragment implements SplashAdListener {
     }
 
     @Override
-    public void onSplashAdClick(String codeId, GTAdInfo adInfo) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdClicked----------" + codeId  + "  adInfo = " + adInfo);
+    public void onSplashAdClick(String adUnitID, GTAdInfo adInfo) {
+        Log.d(Constants.LOG_TAG, "----------onSplashAdClicked----------" + adUnitID  + "  adInfo = " + adInfo);
         logMessage("onSplashAdClicked");
     }
 
     @Override
-    public void onSplashAdClose(String codeId, GTAdInfo adInfo) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdClose----------main" + codeId + ":" + splashLY  + "  adInfo = " + adInfo);
+    public void onSplashAdClose(String adUnitID, GTAdInfo adInfo) {
+        Log.d(Constants.LOG_TAG, "----------onSplashAdClose----------main" + adUnitID + ":" + splashLY  + "  adInfo = " + adInfo);
         logMessage("onSplashAdClose");
         if (splashLY != null) {
             splashLY.removeAllViews();

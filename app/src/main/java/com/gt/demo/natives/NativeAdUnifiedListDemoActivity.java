@@ -3,7 +3,6 @@ package com.gt.demo.natives;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,16 +19,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.gt.demo.Constants;
+import com.gt.demo.R;
+import com.gt.demo.view.ILoadMoreListener;
+import com.gt.demo.view.LoadMoreListView;
 import com.gt.sdk.api.AdError;
 import com.gt.sdk.api.AdRequest;
 import com.gt.sdk.api.NativeAdData;
 import com.gt.sdk.api.NativeAdEventListener;
 import com.gt.sdk.api.NativeAdLoadListener;
 import com.gt.sdk.api.NativeUnifiedAd;
-import com.gt.demo.Constants;
-import com.gt.demo.R;
-import com.gt.demo.view.ILoadMoreListener;
-import com.gt.demo.view.LoadMoreListView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,14 +41,8 @@ public class NativeAdUnifiedListDemoActivity extends AppCompatActivity {
     private LoadMoreListView mListView;
     private MyAdapter myAdapter;
     private NativeUnifiedAd nativeUnifiedAd;
-    private String userID;
-    private String codeId = Constants.NATIVE_ADUNITID;
-
     private List<NativeAdData> mData;
-
-    private int adWidth;
-
-    private Handler mHandler = new Handler(Looper.getMainLooper());
+    private final Handler mHandler = new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +54,7 @@ public class NativeAdUnifiedListDemoActivity extends AppCompatActivity {
     }
 
     private void updatePlacement() {
-        SharedPreferences sharedPreferences = this.getSharedPreferences("setting", 0);
-        adWidth = screenWidthAsIntDips(this) - 20;
+        int adWidth = screenWidthAsIntDips(this) - 20;
         Log.d(Constants.LOG_TAG, "---------screenWidthAsIntDips---------" + adWidth);
     }
 
@@ -95,14 +87,14 @@ public class NativeAdUnifiedListDemoActivity extends AppCompatActivity {
     private void loadListAd() {
         Log.d(Constants.LOG_TAG, "-----------loadListAd-----------");
         Map<String, Object> options = new HashMap<>();
-        options.put("user_id", userID);
-        AdRequest adRequest = new AdRequest.Builder().setAdUnitID(codeId).setExtOption(options).build();
+        String adUnitID = Constants.NATIVE_ADUNITID;
+        AdRequest adRequest = new AdRequest.Builder().setAdUnitID(adUnitID).setExtOption(options).build();
 
         if (nativeUnifiedAd == null) {
             nativeUnifiedAd = new NativeUnifiedAd(adRequest, new NativeAdLoadListener() {
                 @Override
-                public void onAdError(String codeId, AdError error) {
-                    Log.d(Constants.LOG_TAG, "----------onAdError----------:" + error.toString() + ":" + codeId);
+                public void onAdError(String adUnitID, AdError error) {
+                    Log.d(Constants.LOG_TAG, "----------onAdError----------:" + error.toString() + ":" + adUnitID);
                     Toast.makeText(NativeAdUnifiedListDemoActivity.this, "onAdError:" + error, Toast.LENGTH_SHORT).show();
                     if (mListView != null) {
                         mListView.setLoadingFinish();
@@ -110,7 +102,7 @@ public class NativeAdUnifiedListDemoActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onAdLoad(String codeId, List<NativeAdData> adDataList) {
+                public void onAdLoad(String adUnitID, List<NativeAdData> adDataList) {
                     if (mListView != null) {
                         mListView.setLoadingFinish();
                     }

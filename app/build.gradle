@@ -88,9 +88,8 @@ repositories {
 
 dependencies {
 
-//    implementation fileTree(include: ['*.jar','*.aar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar','*.aar'], dir: 'libs')
 
-    implementation project(path: ':gt-sdk')
 
     // 引用本地 目录中的  /Users/wangbobo/.m2/repository
 //    implementation 'com.gt:gt-sdk:0.0.1-SNAPSHOT'

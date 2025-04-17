@@ -39,7 +39,7 @@ public class MyApplication extends MultiDexApplication {
                 .appId("1105")       //必填，向广推商务获取
                 .userId("")  // 用户ID，有就填
                 .debugEnv(true) // 是否使用测试环境域名 请求广告，正式环境务必为false
-                .showLog(true)
+                .showLog(false)
                 .addCustomData(customData)  //自定义数据
                 .customController(new GtCustomController() {
                     // 是否允许SDK获取位置信息

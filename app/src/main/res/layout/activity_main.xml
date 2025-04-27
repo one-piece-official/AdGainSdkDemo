@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="启动内存泄漏示例"
-        android:visibility="invisible"/>
+        android:visibility="gone"/>
 
     <FrameLayout
         android:id="@+id/fragment_container"

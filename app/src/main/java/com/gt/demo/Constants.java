@@ -14,4 +14,6 @@ public class Constants {
 
     //  1029  1055  1054
     public static final String NATIVE_ADUNITID = "1196";
+
+    public static final boolean PORTRAIT = true;
 }

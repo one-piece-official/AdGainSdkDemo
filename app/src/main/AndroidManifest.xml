@@ -42,22 +42,22 @@
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.gt.demo.natives.NativeAdDrawDemoActivity"
+            android:name="com.gt.demo.natives.NativeAdFeedDemoActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity"
+            android:name="com.gt.demo.natives.NativeAdRecycleDemoActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.gt.demo.natives.NativeAdUnifiedListDemoActivity"
+            android:name="com.gt.demo.natives.NativeAdListDemoActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.gt.demo.natives.NativeAdUnifiedDemoActivity"
+            android:name="com.gt.demo.natives.NativeAdSimpleDemoActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
@@ -70,17 +70,17 @@
         android:screenOrientation="landscape"
 -->
         <activity
-            android:name="com.gt.demo.InterstitialDemoActivity"
+            android:name="com.gt.demo.interstitial.InterstitialDemoActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.gt.demo.RewardDemoActivity"
+            android:name="com.gt.demo.reward.RewardDemoActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.gt.demo.SplashDemoActivity"
+            android:name="com.gt.demo.splash.SplashDemoActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -89,6 +89,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.gt.demo.splash.SplashLandDemoActivity"
+            android:exported="true"
+            android:screenOrientation="landscape">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+
         <activity
             android:name="com.gt.demo.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

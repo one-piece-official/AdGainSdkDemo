@@ -19009,20 +19009,20 @@ com.gt.demo.DeviceInfoDemoActivity$1 -> com.gt.demo.DeviceInfoDemoActivity$a:
 # {"id":"sourceFile","fileName":"DeviceInfoDemoActivity.java"}
     android.widget.TextView val$tvB -> a
     com.gt.demo.DeviceInfoDemoActivity this$0 -> b
-com.gt.demo.InterstitialDemoActivity -> com.gt.demo.InterstitialDemoActivity:
+com.gt.demo.interstitial.InterstitialDemoActivity -> com.gt.demo.interstitial.InterstitialDemoActivity:
 # {"id":"sourceFile","fileName":"InterstitialDemoActivity.java"}
     1:1:boolean $r8$lambda$cEAecHa9lYZpRKHQ0SzTrQXwL_k(android.view.View):0:0 -> a
       # {"id":"com.android.tools.r8.synthesized"}
-com.gt.demo.InterstitialDemoActivity$$ExternalSyntheticLambda0 -> com.gt.demo.b:
+com.gt.demo.interstitial.InterstitialDemoActivity$$ExternalSyntheticLambda0 -> com.gt.demo.b:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    void com.gt.demo.InterstitialDemoActivity$$InternalSyntheticLambda$1$805066c35741f20dd404e354174b0ef9c4d6277e5aa457c7287084d339b91711$0.<init>() -> <init>
+    void com.gt.demo.interstitial.InterstitialDemoActivity$$InternalSyntheticLambda$1$805066c35741f20dd404e354174b0ef9c4d6277e5aa457c7287084d339b91711$0.<init>() -> <init>
       # {"id":"com.android.tools.r8.synthesized"}
-    1:1:boolean com.gt.demo.InterstitialDemoActivity$$InternalSyntheticLambda$1$805066c35741f20dd404e354174b0ef9c4d6277e5aa457c7287084d339b91711$0.onLongClick(android.view.View):0:0 -> onLongClick
+    1:1:boolean com.gt.demo.interstitial.InterstitialDemoActivity$$InternalSyntheticLambda$1$805066c35741f20dd404e354174b0ef9c4d6277e5aa457c7287084d339b91711$0.onLongClick(android.view.View):0:0 -> onLongClick
       # {"id":"com.android.tools.r8.synthesized"}
-com.gt.demo.InterstitialDemoActivity$1 -> com.gt.demo.InterstitialDemoActivity$a:
+com.gt.demo.interstitial.InterstitialDemoActivity$1 -> com.gt.demo.interstitial.InterstitialDemoActivity$a:
 # {"id":"sourceFile","fileName":"InterstitialDemoActivity.java"}
-    com.gt.demo.InterstitialDemoActivity this$0 -> a
+    com.gt.demo.interstitial.InterstitialDemoActivity this$0 -> a
 com.gt.demo.LeakActivity -> com.gt.demo.LeakActivity:
 # {"id":"sourceFile","fileName":"LeakActivity.java"}
 com.gt.demo.LeakActivity$1 -> com.gt.demo.LeakActivity$a:
@@ -19082,15 +19082,15 @@ com.gt.demo.MyApplication$1 -> com.gt.demo.MyApplication$a:
 com.gt.demo.MyApplication$2 -> com.gt.demo.MyApplication$b:
 # {"id":"sourceFile","fileName":"MyApplication.java"}
     com.gt.demo.MyApplication this$0 -> a
-com.gt.demo.RewardDemoActivity -> com.gt.demo.RewardDemoActivity:
+com.gt.demo.reward.RewardDemoActivity -> com.gt.demo.reward.RewardDemoActivity:
 # {"id":"sourceFile","fileName":"RewardDemoActivity.java"}
-com.gt.demo.RewardDemoActivity$1 -> com.gt.demo.RewardDemoActivity$a:
+com.gt.demo.reward.RewardDemoActivity$1 -> com.gt.demo.reward.RewardDemoActivity$a:
 # {"id":"sourceFile","fileName":"RewardDemoActivity.java"}
-    com.gt.demo.RewardDemoActivity this$0 -> a
-com.gt.demo.RewardDemoActivity$2 -> com.gt.demo.RewardDemoActivity$b:
+    com.gt.demo.reward.RewardDemoActivity this$0 -> a
+com.gt.demo.reward.RewardDemoActivity$2 -> com.gt.demo.reward.RewardDemoActivity$b:
 # {"id":"sourceFile","fileName":"RewardDemoActivity.java"}
-    com.gt.demo.RewardDemoActivity this$0 -> a
-com.gt.demo.SplashDemoActivity -> com.gt.demo.SplashDemoActivity:
+    com.gt.demo.reward.RewardDemoActivity this$0 -> a
+com.gt.demo.splash.SplashDemoActivity -> com.gt.demo.splash.SplashDemoActivity:
 # {"id":"sourceFile","fileName":"SplashDemoActivity.java"}
 com.gt.demo.natives.NativeAdDemoActivity -> com.gt.demo.natives.NativeAdDemoActivity:
 # {"id":"sourceFile","fileName":"NativeAdDemoActivity.java"}
@@ -19098,176 +19098,176 @@ com.gt.demo.natives.NativeAdDemoActivity$1 -> com.gt.demo.natives.NativeAdDemoAc
 # {"id":"sourceFile","fileName":"NativeAdDemoActivity.java"}
     java.lang.Class val$clz -> a
     com.gt.demo.natives.NativeAdDemoActivity this$0 -> b
-com.gt.demo.natives.NativeAdDrawDemoActivity -> com.gt.demo.natives.NativeAdDrawDemoActivity:
+com.gt.demo.natives.NativeAdFeedDemoActivity -> com.gt.demo.natives.NativeAdFeedDemoActivity:
 # {"id":"sourceFile","fileName":"NativeAdDrawDemoActivity.java"}
-    com.gt.demo.natives.NativeAdDrawDemoActivity$DrawRecyclerAdapter mRecyclerAdapter -> mRecyclerAdapter
+    com.gt.demo.natives.NativeAdFeedDemoActivity$MyDrawAdapter mRecyclerAdapter -> mRecyclerAdapter
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lcom/gt/demo/natives/NativeAdDrawDemoActivity$e;"}
-com.gt.demo.natives.NativeAdDrawDemoActivity$1 -> com.gt.demo.natives.NativeAdDrawDemoActivity$a:
+com.gt.demo.natives.NativeAdFeedDemoActivity$1 -> com.gt.demo.natives.NativeAdFeedDemoActivity$a:
 # {"id":"sourceFile","fileName":"NativeAdDrawDemoActivity.java"}
-    com.gt.demo.natives.NativeAdDrawDemoActivity this$0 -> a
-com.gt.demo.natives.NativeAdDrawDemoActivity$2 -> com.gt.demo.natives.NativeAdDrawDemoActivity$b:
+    com.gt.demo.natives.NativeAdFeedDemoActivity this$0 -> a
+com.gt.demo.natives.NativeAdFeedDemoActivity$2 -> com.gt.demo.natives.NativeAdFeedDemoActivity$b:
 # {"id":"sourceFile","fileName":"NativeAdDrawDemoActivity.java"}
-    com.gt.demo.natives.NativeAdDrawDemoActivity this$0 -> a
+    com.gt.demo.natives.NativeAdFeedDemoActivity this$0 -> a
     1:1:void onInitComplete():0:0 -> a
     1:1:void onPageSelected(int,boolean):0:0 -> b
     1:1:void onPageRelease(boolean,int):0:0 -> c
-com.gt.demo.natives.NativeAdDrawDemoActivity$3 -> com.gt.demo.natives.NativeAdDrawDemoActivity$c:
+com.gt.demo.natives.NativeAdFeedDemoActivity$3 -> com.gt.demo.natives.NativeAdFeedDemoActivity$c:
 # {"id":"sourceFile","fileName":"NativeAdDrawDemoActivity.java"}
     android.widget.ImageView val$imgThumb -> a
-    com.gt.demo.natives.NativeAdDrawDemoActivity this$0 -> b
-com.gt.demo.natives.NativeAdDrawDemoActivity$AdViewHolder -> com.gt.demo.natives.NativeAdDrawDemoActivity$d:
+    com.gt.demo.natives.NativeAdFeedDemoActivity this$0 -> b
+com.gt.demo.natives.NativeAdFeedDemoActivity$AdViewHolder -> com.gt.demo.natives.NativeAdFeedDemoActivity$d:
 # {"id":"sourceFile","fileName":"NativeAdDrawDemoActivity.java"}
     android.widget.FrameLayout adContainer -> a
-com.gt.demo.natives.NativeAdDrawDemoActivity$DrawRecyclerAdapter -> com.gt.demo.natives.NativeAdDrawDemoActivity$e:
+com.gt.demo.natives.NativeAdFeedDemoActivity$MyDrawAdapter -> com.gt.demo.natives.NativeAdFeedDemoActivity$e:
 # {"id":"sourceFile","fileName":"NativeAdDrawDemoActivity.java"}
     android.app.Activity mContext -> a
     java.util.List mDataList -> b
-    1:1:android.view.View getNativeAdView(com.gt.sdk.api.NativeAdData,com.gt.demo.natives.NativeAdDrawDemoActivity$UnifiedAdViewHolder):0:0 -> a
+    1:1:android.view.View getNativeAdView(com.gt.sdk.api.NativeAdData,com.gt.demo.natives.NativeAdFeedDemoActivity$AdViewViewHolder):0:0 -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lcom/gt/sdk/api/NativeAdData;Lcom/gt/demo/natives/NativeAdDrawDemoActivity$h;)Landroid/view/View;"}
-com.gt.demo.natives.NativeAdDrawDemoActivity$DrawRecyclerAdapter$1 -> com.gt.demo.natives.NativeAdDrawDemoActivity$e$a:
+com.gt.demo.natives.NativeAdFeedDemoActivity$MyDrawAdapter$1 -> com.gt.demo.natives.NativeAdFeedDemoActivity$e$a:
 # {"id":"sourceFile","fileName":"NativeAdDrawDemoActivity.java"}
-    com.gt.demo.natives.NativeAdDrawDemoActivity$DrawRecyclerAdapter this$0 -> a
+    com.gt.demo.natives.NativeAdFeedDemoActivity$MyDrawAdapter this$0 -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lcom/gt/demo/natives/NativeAdDrawDemoActivity$e;"}
-com.gt.demo.natives.NativeAdDrawDemoActivity$NormalViewHolder -> com.gt.demo.natives.NativeAdDrawDemoActivity$f:
+com.gt.demo.natives.NativeAdFeedDemoActivity$NormalViewHolder -> com.gt.demo.natives.NativeAdFeedDemoActivity$f:
 # {"id":"sourceFile","fileName":"NativeAdDrawDemoActivity.java"}
     android.widget.VideoView videoView -> a
     android.widget.ImageView videoThumb -> b
     android.widget.ImageView authorIcon -> c
-    1:1:android.widget.VideoView access$600(com.gt.demo.natives.NativeAdDrawDemoActivity$NormalViewHolder):0:0 -> a
+    1:1:android.widget.VideoView access$600(com.gt.demo.natives.NativeAdFeedDemoActivity$NormalViewHolder):0:0 -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lcom/gt/demo/natives/NativeAdDrawDemoActivity$f;)Landroid/widget/VideoView;"}
-    1:1:android.widget.ImageView access$700(com.gt.demo.natives.NativeAdDrawDemoActivity$NormalViewHolder):0:0 -> b
+    1:1:android.widget.ImageView access$700(com.gt.demo.natives.NativeAdFeedDemoActivity$NormalViewHolder):0:0 -> b
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lcom/gt/demo/natives/NativeAdDrawDemoActivity$f;)Landroid/widget/ImageView;"}
-    1:1:android.widget.ImageView access$800(com.gt.demo.natives.NativeAdDrawDemoActivity$NormalViewHolder):0:0 -> c
+    1:1:android.widget.ImageView access$800(com.gt.demo.natives.NativeAdFeedDemoActivity$NormalViewHolder):0:0 -> c
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lcom/gt/demo/natives/NativeAdDrawDemoActivity$f;)Landroid/widget/ImageView;"}
-com.gt.demo.natives.NativeAdDrawDemoActivity$TestItem -> com.gt.demo.natives.NativeAdDrawDemoActivity$g:
+com.gt.demo.natives.NativeAdFeedDemoActivity$DrawItemData -> com.gt.demo.natives.NativeAdFeedDemoActivity$g:
 # {"id":"sourceFile","fileName":"NativeAdDrawDemoActivity.java"}
-    com.gt.demo.natives.NativeAdDrawDemoActivity$TestItem$NormalVideo normalVideo -> a
+    com.gt.demo.natives.NativeAdFeedDemoActivity$DrawItemData$VideoData normalVideo -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lcom/gt/demo/natives/NativeAdDrawDemoActivity$g$a;"}
     com.gt.sdk.api.NativeAdData nativeAdData -> b
-    1:1:com.gt.sdk.api.NativeAdData access$000(com.gt.demo.natives.NativeAdDrawDemoActivity$TestItem):0:0 -> a
+    1:1:com.gt.sdk.api.NativeAdData access$000(com.gt.demo.natives.NativeAdFeedDemoActivity$DrawItemData):0:0 -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lcom/gt/demo/natives/NativeAdDrawDemoActivity$g;)Lcom/gt/sdk/api/NativeAdData;"}
-    1:1:com.gt.demo.natives.NativeAdDrawDemoActivity$TestItem$NormalVideo access$500(com.gt.demo.natives.NativeAdDrawDemoActivity$TestItem):0:0 -> b
+    1:1:com.gt.demo.natives.NativeAdFeedDemoActivity$DrawItemData$VideoData access$500(com.gt.demo.natives.NativeAdFeedDemoActivity$DrawItemData):0:0 -> b
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lcom/gt/demo/natives/NativeAdDrawDemoActivity$g;)Lcom/gt/demo/natives/NativeAdDrawDemoActivity$g$a;"}
     1:1:boolean isAdVideoView():0:0 -> c
-com.gt.demo.natives.NativeAdDrawDemoActivity$TestItem$NormalVideo -> com.gt.demo.natives.NativeAdDrawDemoActivity$g$a:
+com.gt.demo.natives.NativeAdFeedDemoActivity$DrawItemData$VideoData -> com.gt.demo.natives.NativeAdFeedDemoActivity$g$a:
 # {"id":"sourceFile","fileName":"NativeAdDrawDemoActivity.java"}
     int videoId -> a
     int imgId -> b
-com.gt.demo.natives.NativeAdDrawDemoActivity$UnifiedAdViewHolder -> com.gt.demo.natives.NativeAdDrawDemoActivity$h:
+com.gt.demo.natives.NativeAdFeedDemoActivity$AdViewViewHolder -> com.gt.demo.natives.NativeAdFeedDemoActivity$h:
 # {"id":"sourceFile","fileName":"NativeAdDrawDemoActivity.java"}
-    com.gt.demo.natives.NativeDemoDrawRender adRender -> b
+    com.gt.demo.natives.renders.NativeDemoFeedRender adRender -> b
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lh0/b;"}
-com.gt.demo.natives.NativeAdUnifiedDemoActivity -> com.gt.demo.natives.NativeAdUnifiedDemoActivity:
+com.gt.demo.natives.NativeAdSimpleDemoActivity -> com.gt.demo.natives.NativeAdSimpleDemoActivity:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedDemoActivity.java"}
     1:1:boolean $r8$lambda$gFLLtFWahqOaM7vmywzUNqKvbjU(android.view.View):0:0 -> a
       # {"id":"com.android.tools.r8.synthesized"}
-com.gt.demo.natives.NativeAdUnifiedDemoActivity$$ExternalSyntheticLambda0 -> h0.a:
+com.gt.demo.natives.NativeAdSimpleDemoActivity$$ExternalSyntheticLambda0 -> h0.a:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    void com.gt.demo.natives.NativeAdUnifiedDemoActivity$$InternalSyntheticLambda$1$6b7c4bd030a4ce279de45517be0d8b2e59f01c86011f24f142b229df1a97d1c4$0.<init>() -> <init>
+    void com.gt.demo.natives.NativeAdSimpleDemoActivity$$InternalSyntheticLambda$1$6b7c4bd030a4ce279de45517be0d8b2e59f01c86011f24f142b229df1a97d1c4$0.<init>() -> <init>
       # {"id":"com.android.tools.r8.synthesized"}
-    1:1:boolean com.gt.demo.natives.NativeAdUnifiedDemoActivity$$InternalSyntheticLambda$1$6b7c4bd030a4ce279de45517be0d8b2e59f01c86011f24f142b229df1a97d1c4$0.onLongClick(android.view.View):0:0 -> onLongClick
+    1:1:boolean com.gt.demo.natives.NativeAdSimpleDemoActivity$$InternalSyntheticLambda$1$6b7c4bd030a4ce279de45517be0d8b2e59f01c86011f24f142b229df1a97d1c4$0.onLongClick(android.view.View):0:0 -> onLongClick
       # {"id":"com.android.tools.r8.synthesized"}
-com.gt.demo.natives.NativeAdUnifiedDemoActivity$1 -> com.gt.demo.natives.NativeAdUnifiedDemoActivity$a:
+com.gt.demo.natives.NativeAdSimpleDemoActivity$1 -> com.gt.demo.natives.NativeAdSimpleDemoActivity$a:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedDemoActivity.java"}
-    com.gt.demo.natives.NativeAdUnifiedDemoActivity this$0 -> a
-com.gt.demo.natives.NativeAdUnifiedDemoActivity$2 -> com.gt.demo.natives.NativeAdUnifiedDemoActivity$b:
+    com.gt.demo.natives.NativeAdSimpleDemoActivity this$0 -> a
+com.gt.demo.natives.NativeAdSimpleDemoActivity$2 -> com.gt.demo.natives.NativeAdSimpleDemoActivity$b:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedDemoActivity.java"}
-    com.gt.demo.natives.NativeAdUnifiedDemoActivity this$0 -> a
-com.gt.demo.natives.NativeAdUnifiedListDemoActivity -> com.gt.demo.natives.NativeAdUnifiedListDemoActivity:
+    com.gt.demo.natives.NativeAdSimpleDemoActivity this$0 -> a
+com.gt.demo.natives.NativeAdListDemoActivity -> com.gt.demo.natives.NativeAdListDemoActivity:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedListDemoActivity.java"}
-    com.gt.demo.natives.NativeAdUnifiedListDemoActivity$MyAdapter myAdapter -> myAdapter
+    com.gt.demo.natives.NativeAdListDemoActivity$MyAdapter myAdapter -> myAdapter
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lcom/gt/demo/natives/NativeAdUnifiedListDemoActivity$d;"}
-com.gt.demo.natives.NativeAdUnifiedListDemoActivity$1 -> com.gt.demo.natives.NativeAdUnifiedListDemoActivity$a:
+com.gt.demo.natives.NativeAdListDemoActivity$1 -> com.gt.demo.natives.NativeAdListDemoActivity$a:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedListDemoActivity.java"}
-    com.gt.demo.natives.NativeAdUnifiedListDemoActivity this$0 -> a
+    com.gt.demo.natives.NativeAdListDemoActivity this$0 -> a
     1:1:void onLoadMore():0:0 -> a
-com.gt.demo.natives.NativeAdUnifiedListDemoActivity$2 -> com.gt.demo.natives.NativeAdUnifiedListDemoActivity$b:
+com.gt.demo.natives.NativeAdListDemoActivity$2 -> com.gt.demo.natives.NativeAdListDemoActivity$b:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedListDemoActivity.java"}
-    com.gt.demo.natives.NativeAdUnifiedListDemoActivity this$0 -> a
-com.gt.demo.natives.NativeAdUnifiedListDemoActivity$3 -> com.gt.demo.natives.NativeAdUnifiedListDemoActivity$c:
+    com.gt.demo.natives.NativeAdListDemoActivity this$0 -> a
+com.gt.demo.natives.NativeAdListDemoActivity$3 -> com.gt.demo.natives.NativeAdListDemoActivity$c:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedListDemoActivity.java"}
-    com.gt.demo.natives.NativeAdUnifiedListDemoActivity this$0 -> a
-com.gt.demo.natives.NativeAdUnifiedListDemoActivity$MyAdapter -> com.gt.demo.natives.NativeAdUnifiedListDemoActivity$d:
+    com.gt.demo.natives.NativeAdListDemoActivity this$0 -> a
+com.gt.demo.natives.NativeAdListDemoActivity$MyAdapter -> com.gt.demo.natives.NativeAdListDemoActivity$d:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedListDemoActivity.java"}
     java.util.List mData -> a
     android.app.Activity mActivity -> b
-    1:1:java.util.List access$500(com.gt.demo.natives.NativeAdUnifiedListDemoActivity$MyAdapter):0:0 -> a
+    1:1:java.util.List access$500(com.gt.demo.natives.NativeAdListDemoActivity$MyAdapter):0:0 -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lcom/gt/demo/natives/NativeAdUnifiedListDemoActivity$d;)Ljava/util/List;"}
     1:1:com.gt.sdk.api.NativeAdData getItem(int):0:0 -> b
-    1:1:android.view.View getNativeAdView(com.gt.sdk.api.NativeAdData,com.gt.demo.natives.NativeAdUnifiedListDemoActivity$MyAdapter$UnifiedAdViewHolder):0:0 -> c
+    1:1:android.view.View getNativeAdView(com.gt.sdk.api.NativeAdData,com.gt.demo.natives.NativeAdListDemoActivity$MyAdapter$UnifiedAdViewHolder):0:0 -> c
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lcom/gt/sdk/api/NativeAdData;Lcom/gt/demo/natives/NativeAdUnifiedListDemoActivity$d$e;)Landroid/view/View;"}
     1:1:android.view.View getNormalView(android.view.View,android.view.ViewGroup,int):0:0 -> d
     1:1:android.view.View getUnifiedADView(android.view.View,android.view.ViewGroup,com.gt.sdk.api.NativeAdData):0:0 -> e
-com.gt.demo.natives.NativeAdUnifiedListDemoActivity$MyAdapter$1 -> com.gt.demo.natives.NativeAdUnifiedListDemoActivity$d$a:
+com.gt.demo.natives.NativeAdListDemoActivity$MyAdapter$1 -> com.gt.demo.natives.NativeAdListDemoActivity$d$a:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedListDemoActivity.java"}
     com.gt.sdk.api.NativeAdData val$nativeAdData -> a
-    com.gt.demo.natives.NativeAdUnifiedListDemoActivity$MyAdapter this$0 -> b
+    com.gt.demo.natives.NativeAdListDemoActivity$MyAdapter this$0 -> b
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lcom/gt/demo/natives/NativeAdUnifiedListDemoActivity$d;"}
-com.gt.demo.natives.NativeAdUnifiedListDemoActivity$MyAdapter$2 -> com.gt.demo.natives.NativeAdUnifiedListDemoActivity$d$b:
+com.gt.demo.natives.NativeAdListDemoActivity$MyAdapter$2 -> com.gt.demo.natives.NativeAdListDemoActivity$d$b:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedListDemoActivity.java"}
-    com.gt.demo.natives.NativeAdUnifiedListDemoActivity$MyAdapter this$0 -> a
+    com.gt.demo.natives.NativeAdListDemoActivity$MyAdapter this$0 -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lcom/gt/demo/natives/NativeAdUnifiedListDemoActivity$d;"}
-com.gt.demo.natives.NativeAdUnifiedListDemoActivity$MyAdapter$AdViewHolder -> com.gt.demo.natives.NativeAdUnifiedListDemoActivity$d$c:
+com.gt.demo.natives.NativeAdListDemoActivity$MyAdapter$AdViewHolder -> com.gt.demo.natives.NativeAdListDemoActivity$d$c:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedListDemoActivity.java"}
     android.widget.FrameLayout adContainer -> a
-com.gt.demo.natives.NativeAdUnifiedListDemoActivity$MyAdapter$NormalViewHolder -> com.gt.demo.natives.NativeAdUnifiedListDemoActivity$d$d:
+com.gt.demo.natives.NativeAdListDemoActivity$MyAdapter$NormalViewHolder -> com.gt.demo.natives.NativeAdListDemoActivity$d$d:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedListDemoActivity.java"}
     android.widget.TextView idle -> a
     void <init>() -> <init>
-    1:1:void <init>(com.gt.demo.natives.NativeAdUnifiedListDemoActivity$1):0:0 -> <init>
+    1:1:void <init>(com.gt.demo.natives.NativeAdListDemoActivity$1):0:0 -> <init>
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lcom/gt/demo/natives/NativeAdUnifiedListDemoActivity$a;)V"}
-com.gt.demo.natives.NativeAdUnifiedListDemoActivity$MyAdapter$UnifiedAdViewHolder -> com.gt.demo.natives.NativeAdUnifiedListDemoActivity$d$e:
+com.gt.demo.natives.NativeAdListDemoActivity$MyAdapter$UnifiedAdViewHolder -> com.gt.demo.natives.NativeAdListDemoActivity$d$e:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedListDemoActivity.java"}
-    com.gt.demo.natives.NativeDemoRender adRender -> b
+    com.gt.demo.natives.renders.NativeDemoRender adRender -> b
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lh0/d;"}
-com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity -> com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity:
+com.gt.demo.natives.NativeAdRecycleDemoActivity -> com.gt.demo.natives.NativeAdRecycleDemoActivity:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedRecycleDemoActivity.java"}
-    com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$MyAdapter myAdapter -> myAdapter
+    com.gt.demo.natives.NativeAdRecycleDemoActivity$MyAdapter myAdapter -> myAdapter
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lcom/gt/demo/natives/NativeAdUnifiedRecycleDemoActivity$d;"}
-com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$1 -> com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$a:
+com.gt.demo.natives.NativeAdRecycleDemoActivity$1 -> com.gt.demo.natives.NativeAdRecycleDemoActivity$a:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedRecycleDemoActivity.java"}
-    com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity this$0 -> a
+    com.gt.demo.natives.NativeAdRecycleDemoActivity this$0 -> a
     1:1:void onLoadMore():0:0 -> a
-com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$2 -> com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$b:
+com.gt.demo.natives.NativeAdRecycleDemoActivity$2 -> com.gt.demo.natives.NativeAdRecycleDemoActivity$b:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedRecycleDemoActivity.java"}
-    com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity this$0 -> a
-com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$3 -> com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$c:
+    com.gt.demo.natives.NativeAdRecycleDemoActivity this$0 -> a
+com.gt.demo.natives.NativeAdRecycleDemoActivity$3 -> com.gt.demo.natives.NativeAdRecycleDemoActivity$c:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedRecycleDemoActivity.java"}
-    com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity this$0 -> a
-com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$MyAdapter -> com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$d:
+    com.gt.demo.natives.NativeAdRecycleDemoActivity this$0 -> a
+com.gt.demo.natives.NativeAdRecycleDemoActivity$MyAdapter -> com.gt.demo.natives.NativeAdRecycleDemoActivity$d:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedRecycleDemoActivity.java"}
     java.util.List mData -> a
     android.app.Activity mActivity -> b
-    1:1:java.util.List access$400(com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$MyAdapter):0:0 -> a
+    1:1:java.util.List access$400(com.gt.demo.natives.NativeAdRecycleDemoActivity$MyAdapter):0:0 -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lcom/gt/demo/natives/NativeAdUnifiedRecycleDemoActivity$d;)Ljava/util/List;"}
     1:1:int getColorRandom():0:0 -> b
-    1:1:android.view.View getNativeAdView(com.gt.sdk.api.NativeAdData,com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$MyAdapter$UnifiedAdViewHolder):0:0 -> c
+    1:1:android.view.View getNativeAdView(com.gt.sdk.api.NativeAdData,com.gt.demo.natives.NativeAdRecycleDemoActivity$MyAdapter$AdViewHolder):0:0 -> c
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lcom/gt/sdk/api/NativeAdData;Lcom/gt/demo/natives/NativeAdUnifiedRecycleDemoActivity$d$f;)Landroid/view/View;"}
-com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$MyAdapter$1 -> com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$d$a:
+com.gt.demo.natives.NativeAdRecycleDemoActivity$MyAdapter$1 -> com.gt.demo.natives.NativeAdRecycleDemoActivity$d$a:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedRecycleDemoActivity.java"}
     com.gt.sdk.api.NativeAdData val$nativeAdData -> a
-    com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$MyAdapter this$0 -> b
+    com.gt.demo.natives.NativeAdRecycleDemoActivity$MyAdapter this$0 -> b
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lcom/gt/demo/natives/NativeAdUnifiedRecycleDemoActivity$d;"}
-com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$MyAdapter$2 -> com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$d$b:
+com.gt.demo.natives.NativeAdRecycleDemoActivity$MyAdapter$2 -> com.gt.demo.natives.NativeAdRecycleDemoActivity$d$b:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedRecycleDemoActivity.java"}
-    com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$MyAdapter this$0 -> a
+    com.gt.demo.natives.NativeAdRecycleDemoActivity$MyAdapter this$0 -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lcom/gt/demo/natives/NativeAdUnifiedRecycleDemoActivity$d;"}
-com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$MyAdapter$AdViewHolder -> com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$d$c:
+com.gt.demo.natives.NativeAdRecycleDemoActivity$MyAdapter$AdViewHolder -> com.gt.demo.natives.NativeAdRecycleDemoActivity$d$c:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedRecycleDemoActivity.java"}
     android.widget.FrameLayout adContainer -> a
-com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$MyAdapter$LoadMoreViewHolder -> com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$d$d:
+com.gt.demo.natives.NativeAdRecycleDemoActivity$MyAdapter$LoadMoreViewHolder -> com.gt.demo.natives.NativeAdRecycleDemoActivity$d$d:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedRecycleDemoActivity.java"}
     android.widget.TextView mTextView -> a
     android.widget.ProgressBar mProgressBar -> b
-com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$MyAdapter$NormalViewHolder -> com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$d$e:
+com.gt.demo.natives.NativeAdRecycleDemoActivity$MyAdapter$NormalViewHolder -> com.gt.demo.natives.NativeAdRecycleDemoActivity$d$e:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedRecycleDemoActivity.java"}
     android.widget.TextView idle -> a
-com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$MyAdapter$UnifiedAdViewHolder -> com.gt.demo.natives.NativeAdUnifiedRecycleDemoActivity$d$f:
+com.gt.demo.natives.NativeAdRecycleDemoActivity$MyAdapter$AdViewHolder -> com.gt.demo.natives.NativeAdRecycleDemoActivity$d$f:
 # {"id":"sourceFile","fileName":"NativeAdUnifiedRecycleDemoActivity.java"}
-    com.gt.demo.natives.NativeDemoRender adRender -> b
+    com.gt.demo.natives.renders.NativeDemoRender adRender -> b
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lh0/d;"}
-com.gt.demo.natives.NativeDemoDrawRender -> h0.b:
+com.gt.demo.natives.renders.NativeDemoFeedRender -> h0.b:
 # {"id":"sourceFile","fileName":"NativeDemoDrawRender.java"}
     android.content.Context context -> a
     java.util.Map developViewMap -> b
@@ -19285,11 +19285,11 @@ com.gt.demo.natives.NativeDemoDrawRender -> h0.b:
     1:1:void printLogs(com.gt.sdk.api.NativeAdData):0:0 -> b
     1:1:android.view.View renderAdView(com.gt.sdk.api.NativeAdData,com.gt.sdk.api.NativeAdEventListener):0:0 -> c
     1:1:void updateAdAction(java.lang.String):0:0 -> d
-com.gt.demo.natives.NativeDemoDrawRender$1 -> h0.b$a:
+com.gt.demo.natives.renders.NativeDemoFeedRender$1 -> h0.b$a:
 # {"id":"sourceFile","fileName":"NativeDemoDrawRender.java"}
-    com.gt.demo.natives.NativeDemoDrawRender this$0 -> a
+    com.gt.demo.natives.renders.NativeDemoFeedRender this$0 -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lh0/b;"}
-    1:1:void <init>(com.gt.demo.natives.NativeDemoDrawRender):0:0 -> <init>
+    1:1:void <init>(com.gt.demo.natives.renders.NativeDemoFeedRender):0:0 -> <init>
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lh0/b;)V"}
     1:1:void onVideoCompleted():0:0 -> onVideoCompleted
     1:1:void onVideoError(com.gt.sdk.api.AdError):0:0 -> onVideoError
@@ -19297,7 +19297,7 @@ com.gt.demo.natives.NativeDemoDrawRender$1 -> h0.b$a:
     1:1:void onVideoPause():0:0 -> onVideoPause
     1:1:void onVideoResume():0:0 -> onVideoResume
     1:1:void onVideoStart():0:0 -> onVideoStart
-com.gt.demo.natives.NativeDemoRender -> h0.d:
+com.gt.demo.natives.renders.NativeDemoRender -> h0.d:
 # {"id":"sourceFile","fileName":"NativeDemoRender.java"}
     android.content.Context context -> a
     android.widget.ImageView img_logo -> b
@@ -19320,7 +19320,7 @@ com.gt.demo.natives.NativeDemoRender -> h0.d:
     android.widget.FrameLayout shakeLayout -> s
     java.util.Map developViewMap -> t
     1:1:void <init>(android.content.Context):0:0 -> <init>
-    1:1:void $r8$lambda$oRjBGymMupjlSVLLflZfG_KD1ns(com.gt.demo.natives.NativeDemoRender,com.gt.sdk.api.NativeAdData,android.view.View):0:0 -> a
+    1:1:void $r8$lambda$oRjBGymMupjlSVLLflZfG_KD1ns(com.gt.demo.natives.renders.NativeDemoRender,com.gt.sdk.api.NativeAdData,android.view.View):0:0 -> a
       # {"id":"com.android.tools.r8.synthesized"}
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lh0/d;Lcom/gt/sdk/api/NativeAdData;Landroid/view/View;)V"}
     1:1:android.view.View createView(android.content.Context,com.gt.sdk.api.NativeAdData):0:0 -> b
@@ -19328,24 +19328,24 @@ com.gt.demo.natives.NativeDemoRender -> h0.d:
     1:1:void printLogImgUrl(com.gt.sdk.api.NativeAdData):0:0 -> d
     1:1:android.view.View renderAdView(com.gt.sdk.api.NativeAdData,com.gt.sdk.api.NativeAdEventListener):0:0 -> e
     1:1:void updateCTATxt(java.lang.String):0:0 -> f
-com.gt.demo.natives.NativeDemoRender$$ExternalSyntheticLambda0 -> h0.c:
+com.gt.demo.natives.renders.NativeDemoRender$$ExternalSyntheticLambda0 -> h0.c:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    com.gt.demo.natives.NativeDemoRender com.gt.demo.natives.NativeDemoRender$$InternalSyntheticLambda$1$d3c23ea5fa9579fc44f160613f14f88b9440e67cabb4fac6ddbeb7b4f2899774$0.f$0 -> a
+    com.gt.demo.natives.renders.NativeDemoRender com.gt.demo.natives.renders.NativeDemoRender$$InternalSyntheticLambda$1$d3c23ea5fa9579fc44f160613f14f88b9440e67cabb4fac6ddbeb7b4f2899774$0.f$0 -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lh0/d;"}
       # {"id":"com.android.tools.r8.synthesized"}
-    com.gt.sdk.api.NativeAdData com.gt.demo.natives.NativeDemoRender$$InternalSyntheticLambda$1$d3c23ea5fa9579fc44f160613f14f88b9440e67cabb4fac6ddbeb7b4f2899774$0.f$1 -> b
+    com.gt.sdk.api.NativeAdData com.gt.demo.natives.renders.NativeDemoRender$$InternalSyntheticLambda$1$d3c23ea5fa9579fc44f160613f14f88b9440e67cabb4fac6ddbeb7b4f2899774$0.f$1 -> b
       # {"id":"com.android.tools.r8.synthesized"}
-    1:1:void com.gt.demo.natives.NativeDemoRender$$InternalSyntheticLambda$1$d3c23ea5fa9579fc44f160613f14f88b9440e67cabb4fac6ddbeb7b4f2899774$0.<init>(com.gt.demo.natives.NativeDemoRender,com.gt.sdk.api.NativeAdData):0:0 -> <init>
+    1:1:void com.gt.demo.natives.renders.NativeDemoRender$$InternalSyntheticLambda$1$d3c23ea5fa9579fc44f160613f14f88b9440e67cabb4fac6ddbeb7b4f2899774$0.<init>(com.gt.demo.natives.renders.NativeDemoRender,com.gt.sdk.api.NativeAdData):0:0 -> <init>
       # {"id":"com.android.tools.r8.synthesized"}
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lh0/d;Lcom/gt/sdk/api/NativeAdData;)V"}
-    1:1:void com.gt.demo.natives.NativeDemoRender$$InternalSyntheticLambda$1$d3c23ea5fa9579fc44f160613f14f88b9440e67cabb4fac6ddbeb7b4f2899774$0.onClick(android.view.View):0:0 -> onClick
+    1:1:void com.gt.demo.natives.renders.NativeDemoRender$$InternalSyntheticLambda$1$d3c23ea5fa9579fc44f160613f14f88b9440e67cabb4fac6ddbeb7b4f2899774$0.onClick(android.view.View):0:0 -> onClick
       # {"id":"com.android.tools.r8.synthesized"}
-com.gt.demo.natives.NativeDemoRender$1 -> h0.d$a:
+com.gt.demo.natives.renders.NativeDemoRender$1 -> h0.d$a:
 # {"id":"sourceFile","fileName":"NativeDemoRender.java"}
-    com.gt.demo.natives.NativeDemoRender this$0 -> a
+    com.gt.demo.natives.renders.NativeDemoRender this$0 -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lh0/d;"}
-    1:1:void <init>(com.gt.demo.natives.NativeDemoRender):0:0 -> <init>
+    1:1:void <init>(com.gt.demo.natives.renders.NativeDemoRender):0:0 -> <init>
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lh0/d;)V"}
     1:1:void onVideoCompleted():0:0 -> onVideoCompleted
     1:1:void onVideoError(com.gt.sdk.api.AdError):0:0 -> onVideoError
@@ -19359,7 +19359,7 @@ com.gt.demo.utils.PxUtils -> i0.a:
     1:1:int getDeviceHeightInPixel(android.content.Context):0:0 -> b
     1:1:int getDeviceWidthInPixel(android.content.Context):0:0 -> c
     1:1:android.util.DisplayMetrics getRealMetrics(android.content.Context):0:0 -> d
-com.gt.demo.utils.UIUtils -> i0.c:
+com.gt.demo.utils.UIUtil -> i0.c:
 # {"id":"sourceFile","fileName":"UIUtils.java"}
     1:1:float getHeight(android.app.Activity):0:0 -> a
     1:1:int getInt(java.lang.String,android.app.Activity):0:0 -> b
@@ -19375,10 +19375,10 @@ com.gt.demo.utils.UIUtils -> i0.c:
     1:1:boolean isAndroidPHasNotch(android.app.Activity):0:0 -> l
     1:1:boolean isMiui():0:0 -> m
     1:1:int px2dip(android.content.Context,float):0:0 -> n
-com.gt.demo.utils.UIUtils$$ExternalSyntheticApiModelOutline0 -> i0.b:
+com.gt.demo.utils.UIUtil$$ExternalSyntheticApiModelOutline0 -> i0.b:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    1:1:android.view.WindowInsets com.gt.demo.utils.UIUtils$$InternalSyntheticApiModelOutline$1$16906ec0b2769bcaa3099d5ec0d9aab3421960eec448e1337700d4b0c9dc6083$0.m(android.view.View):0:0 -> a
+    1:1:android.view.WindowInsets com.gt.demo.utils.UIUtil$$InternalSyntheticApiModelOutline$1$16906ec0b2769bcaa3099d5ec0d9aab3421960eec448e1337700d4b0c9dc6083$0.m(android.view.View):0:0 -> a
       # {"id":"com.android.tools.r8.synthesized"}
 com.gt.demo.view.ILoadMoreListener -> j0.a:
 # {"id":"sourceFile","fileName":"ILoadMoreListener.java"}

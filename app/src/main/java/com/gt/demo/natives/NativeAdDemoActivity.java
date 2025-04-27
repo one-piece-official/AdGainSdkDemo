@@ -2,33 +2,34 @@ package com.gt.demo.natives;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
-import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.gt.demo.R;
+import com.gt.demo.databinding.DemoActivityNativeBinding;
+
+import java.util.Map;
 
 
 public class NativeAdDemoActivity extends AppCompatActivity {
 
+    private DemoActivityNativeBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_native);
-        bindButton(R.id.native_ad_button, NativeAdUnifiedDemoActivity.class);
-        bindButton(R.id.native_ad_list_button, NativeAdUnifiedListDemoActivity.class);
-        bindButton(R.id.native_ad_recycle_button, NativeAdUnifiedRecycleDemoActivity.class);
-        bindButton(R.id.native_draw_recycle_button, NativeAdDrawDemoActivity.class);
-    }
+        binding = DemoActivityNativeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-    private void bindButton(@IdRes int id, final Class clz) {
-        this.findViewById(id).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(NativeAdDemoActivity.this, clz);
+        Map.of(
+                binding.nativeAdSimpleButton, NativeAdSimpleDemoActivity.class,
+                binding.nativeAdListButton, NativeAdListDemoActivity.class,
+                binding.nativeAdRecycleButton, NativeAdRecycleDemoActivity.class,
+                binding.nativeDrawRecycleButton, NativeAdFeedDemoActivity.class
+        ).entrySet().forEach(entry -> {
+            entry.getKey().setOnClickListener(v -> {
+                Intent intent = new Intent(NativeAdDemoActivity.this, entry.getValue());
                 startActivity(intent);
-            }
+            });
         });
     }
+
 }

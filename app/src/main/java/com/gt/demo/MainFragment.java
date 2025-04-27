@@ -1,10 +1,8 @@
 package com.gt.demo;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -13,14 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
+import com.gt.demo.databinding.MainFragmentBinding;
+import com.gt.demo.interstitial.InterstitialDemoActivity;
 import com.gt.demo.natives.NativeAdDemoActivity;
-import com.gt.demo.utils.PxUtils;
+import com.gt.demo.reward.RewardDemoActivity;
+import com.gt.demo.utils.UIUtil;
 import com.gt.sdk.api.AdError;
 import com.gt.sdk.api.AdRequest;
 import com.gt.sdk.api.GTAdInfo;
@@ -28,18 +29,28 @@ import com.gt.sdk.api.SplashAd;
 import com.gt.sdk.api.SplashAdListener;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
 public class MainFragment extends Fragment implements SplashAdListener {
+    private static final String ARG_KEY_LOGS = "logs";
 
-    private TextView logTextView;
+    public static MainFragment newInstance(String[] logs) {
+        MainFragment ret = new MainFragment();
+        Bundle arguments = new Bundle();
+        arguments.putStringArray(ARG_KEY_LOGS, logs);
+        ret.setArguments(arguments);
+        return ret;
+    }
+
     private String[] mLogs;
     private Activity mActivity;
     String splashAdUnitId = Constants.SPLASH_ADUNITID;
     private ViewGroup splashLY;
+    MainFragmentBinding binding;
 
     private void initViewGroup(Activity activity) {
         splashLY = new RelativeLayout(activity);
@@ -49,41 +60,57 @@ public class MainFragment extends Fragment implements SplashAdListener {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.main_fragment, container, false);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle args = getArguments();
+        if (args != null) {
+            setLogs(args.getStringArray(ARG_KEY_LOGS));
+        }
     }
 
-    private void bindButton(@IdRes int id, Class clz) {
-        getMyActivity().findViewById(id).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //开屏代码位id
-                if (v.getId() == R.id.splash_button_load) {
-                    LoadSplashAd();
-                    return;
-                }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = MainFragmentBinding.inflate(getLayoutInflater(), container, false);
+        return binding.getRoot();
+    }
 
-                if (v.getId() == R.id.splash_button_show) {
-                    showSplashAd();
-                    return;
-                }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.splashButtonLoad.setOnClickListener(v -> LoadSplashAd());
+        binding.splashButtonShow.setOnClickListener(v -> showSplashAd());
+        binding.splashButtonReady.setOnClickListener(v -> {
+            boolean ready = splashAd != null && splashAd.isReady();
+            Log.d(Constants.LOG_TAG, "---------ready---------" + ready);
+            logMessage("splashAd ready = " + ready);
+        });
+        binding.cleanLogButton.setOnClickListener(v -> cleanLog());
+        binding.logView.setOnLongClickListener(v -> true);
+        binding.logView.setMovementMethod(ScrollingMovementMethod.getInstance());
 
-                if (v.getId() == R.id.splash_button_ready) {
-                    boolean ready = splashAd != null && splashAd.isReady();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            WebView.setWebContentsDebuggingEnabled(true);
+        }
 
-                    Log.d(Constants.LOG_TAG, "---------ready---------" + ready);
-                    logMessage("splashAd ready = "+ ready);
-                    return;
-                }
-
-
-                Intent intent = new Intent(getMyActivity(), clz);
+        if (mLogs != null) {
+            Arrays.stream(mLogs).forEach(this::logMessage);
+        }
+        // jump map
+        Map.of(
+                binding.interstitialButton, InterstitialDemoActivity.class,
+                binding.rewardButton, RewardDemoActivity.class,
+                binding.nativeButton, NativeAdDemoActivity.class,
+                binding.deviceInfo, DeviceInfoDemoActivity.class
+        ).entrySet().forEach(entry -> {
+            entry.getKey().setOnClickListener(v -> {
+                Intent intent = new Intent(getMyActivity(), entry.getValue());
                 startActivity(intent);
-            }
+            });
         });
     }
 
     SplashAd splashAd;
+
     private void LoadSplashAd() {
         initViewGroup(getMyActivity());
 
@@ -93,10 +120,11 @@ public class MainFragment extends Fragment implements SplashAdListener {
         options.put("user_id", "");
         AdRequest adRequest = new AdRequest.Builder()
                 .setAdUnitID(splashAdUnitId)
-                .setWidth(PxUtils.getRealMetrics(getMyActivity()).widthPixels)
-                .setHeight(PxUtils.getRealMetrics(getMyActivity()).heightPixels)
+                .setWidth(UIUtil.getScreenWidthInPx(getMyActivity()))
+                .setHeight(UIUtil.getRealHeightInPx(getMyActivity()))
                 .setExtOption(options)
                 .setSplashAdLoadTimeoutMs(5 * 1000)
+                .setPortrait(false)
                 .build();
 
         splashAd = new SplashAd(adRequest, this);
@@ -118,57 +146,8 @@ public class MainFragment extends Fragment implements SplashAdListener {
         }
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        bindButton(R.id.splash_button_load, null);
-        bindButton(R.id.splash_button_ready, null);
-        bindButton(R.id.splash_button_show, null);
-        bindButton(R.id.interstitial_button, InterstitialDemoActivity.class);
-        bindButton(R.id.reward_button, RewardDemoActivity.class);
-        bindButton(R.id.native_button, NativeAdDemoActivity.class);
-        bindButton(R.id.device_info, DeviceInfoDemoActivity.class);
-
-        Button cleanLogBtn = getView().findViewById(R.id.cleanLog_button);
-
-        logTextView = getView().findViewById(R.id.logView);
-
-        cleanLogBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cleanLog();
-            }
-        });
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            WebView.setWebContentsDebuggingEnabled(true);
-        }
-
-        logTextView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                return true;
-            }
-        });
-
-        logTextView.setMovementMethod(ScrollingMovementMethod.getInstance());
-
-        if (mLogs != null && mLogs.length > 0) {
-            for (int i = 0; i < mLogs.length; i++) {
-                logMessage(mLogs[i]);
-            }
-        }
-
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("setting", 0);
-    }
-
-    public void setLogs(String[] logs) {
+    private void setLogs(String[] logs) {
         mLogs = logs;
-        if (mLogs != null && mLogs.length > 0 && logTextView != null) {
-            for (int i = 0; i < mLogs.length; i++) {
-                logMessage(mLogs[i]);
-            }
-        }
     }
 
     public void onAttach(Context context) {
@@ -183,16 +162,8 @@ public class MainFragment extends Fragment implements SplashAdListener {
         return mActivity;
     }
 
-    /*private void configuration() {
-        ConfigFragment configurationFragment = new ConfigFragment();
-        FragmentTransaction transaction = getMyActivity().getFragmentManager().beginTransaction();
-        transaction.add(R.id.fragment_container, configurationFragment);
-        transaction.addToBackStack("configuration");
-        transaction.commit();
-    }*/
-
     private void cleanLog() {
-        logTextView.setText("");
+        binding.logView.setText("");
     }
 
     private static SimpleDateFormat dateFormat = null;
@@ -206,12 +177,12 @@ public class MainFragment extends Fragment implements SplashAdListener {
 
     private void logMessage(String message) {
         Date date = new Date();
-        logTextView.append(getDateTimeFormat().format(date) + " " + message + '\n');
+        binding.logView.append(getDateTimeFormat().format(date) + " " + message + '\n');
     }
 
     @Override
     public void onSplashAdLoadSuccess(String adUnitID, GTAdInfo adInfo) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdLoadSuccess----------" + adUnitID  + "  adInfo = " + adInfo);
+        Log.d(Constants.LOG_TAG, "----------onSplashAdLoadSuccess----------" + adUnitID + "  adInfo = " + adInfo);
         logMessage("onSplashAdLoadSuccess");
     }
 
@@ -229,6 +200,7 @@ public class MainFragment extends Fragment implements SplashAdListener {
     public void onSplashAdShow(String adUnitID, GTAdInfo adInfo) {
         Log.d(Constants.LOG_TAG, "----------onSplashAdShow----------" + adUnitID + "  adInfo = " + adInfo);
         logMessage("onSplashAdShow");
+        UIUtil.hideBottomUIMenu(getMyActivity());
     }
 
     @Override
@@ -239,21 +211,23 @@ public class MainFragment extends Fragment implements SplashAdListener {
             splashLY.removeAllViews();
             splashLY.setVisibility(View.GONE);
         }
+        UIUtil.showBottomUIMenu(getMyActivity());
     }
 
     @Override
     public void onSplashAdClick(String adUnitID, GTAdInfo adInfo) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdClicked----------" + adUnitID  + "  adInfo = " + adInfo);
+        Log.d(Constants.LOG_TAG, "----------onSplashAdClicked----------" + adUnitID + "  adInfo = " + adInfo);
         logMessage("onSplashAdClicked");
     }
 
     @Override
     public void onSplashAdClose(String adUnitID, GTAdInfo adInfo) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdClose----------main" + adUnitID + ":" + splashLY  + "  adInfo = " + adInfo);
+        Log.d(Constants.LOG_TAG, "----------onSplashAdClose----------main" + adUnitID + ":" + splashLY + "  adInfo = " + adInfo);
         logMessage("onSplashAdClose");
         if (splashLY != null) {
             splashLY.removeAllViews();
             splashLY.setVisibility(View.GONE);
         }
+        UIUtil.showBottomUIMenu(getMyActivity());
     }
 }

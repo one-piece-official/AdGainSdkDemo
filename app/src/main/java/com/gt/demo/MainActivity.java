@@ -15,23 +15,27 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.gt.demo.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private MainFragment mMainFragment;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Log.d(Constants.LOG_TAG, "------------startActivity--------onCreate-------" + System.currentTimeMillis());
-
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         createMainFragment();
 
         requestPermission(this);
 
         // 添加启动 LeakActivity 的按钮
-        findViewById(R.id.start_leak_activity).setOnClickListener(v -> {
+        binding.startLeakActivity.setOnClickListener(v -> {
             startActivity(new Intent(this, LeakActivity.class));
         });
 
@@ -67,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void testJavaCrash() {
-        throw new SecurityException("Sdk test Crash from lance!");
+        throw new SecurityException("GtSdk demo test Crash!");
     }
 
     @Override
@@ -80,23 +84,15 @@ public class MainActivity extends AppCompatActivity {
         super.onNewIntent(intent);
         if (mMainFragment != null && intent != null) {
             String[] logs = intent.getStringArrayExtra("logs");
-            mMainFragment.setLogs(logs);
         }
     }
 
     private void createMainFragment() {
-
-        setContentView(R.layout.activity_main);
-
-        if (findViewById(R.id.fragment_container) != null && mMainFragment == null) {
-
-            mMainFragment = new MainFragment();
+        if (mMainFragment == null) {
             Intent intent = getIntent();
             String[] logs = intent.getStringArrayExtra("logs");
-
-            mMainFragment.setLogs(logs);
-            getFragmentManager().beginTransaction().replace(R.id.fragment_container, mMainFragment).commit();
-
+            mMainFragment = MainFragment.newInstance(logs);
+            getSupportFragmentManager().beginTransaction().replace(binding.fragmentContainer.getId(), mMainFragment).commit();
         }
     }
 
@@ -108,9 +104,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Log.d(TAG, "onBackPressed() called " + getFragmentManager().getBackStackEntryCount());
-        if (getFragmentManager().getBackStackEntryCount() > 0) {
-            getFragmentManager().popBackStack();
+        Log.d(TAG, "onBackPressed() called " + getSupportFragmentManager().getBackStackEntryCount());
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
         } else {
             finish();
         }

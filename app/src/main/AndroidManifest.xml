@@ -74,6 +74,10 @@
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
 
+<!--
+        android:configChanges="orientation|screenSize"
+        业务一定要加，否则竖屏无法切换到横屏
+-->
         <activity
             android:name="com.gt.demo.reward.RewardDemoActivity"
             android:configChanges="orientation|screenSize"

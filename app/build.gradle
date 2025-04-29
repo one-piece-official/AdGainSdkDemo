@@ -96,6 +96,13 @@ dependencies {
     implementation fileTree(include: ['*.jar','*.aar'], dir: 'libs')
 
 
+    // 媒体 必须 要依赖下面这 2个库，否则 华为和荣耀设备 无法拿到OAID,严重影响广告填充
+    // 华为OAID https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides-V5/oaid-0000001050783198-V5
+    implementation "com.huawei.hms:ads-identifier:3.4.62.300"
+
+    // 荣耀OAID https://developer.honor.com/cn/docs/11030/guides/intergrate
+    implementation 'com.hihonor.mcs:ads-identifier:1.0.2.301'
+
     // 引用本地 目录中的  /Users/wangbobo/.m2/repository
 //    implementation 'com.gt:gt-sdk:0.0.1-SNAPSHOT'
 

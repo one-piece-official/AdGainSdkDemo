@@ -16,6 +16,10 @@
 
 dependencies {
     implementation fileTree(include: ['*.aar'], dir: 'libs')
+    
+    // 媒体 必须 要依赖下面这 2个库，否则 华为和荣耀设备 无法拿到OAID,严重影响广告填充
+     implementation "com.huawei.hms:ads-identifier:3.4.62.300"
+     implementation 'com.hihonor.mcs:ads-identifier:1.0.2.301'
 }
 
 ```
@@ -89,6 +93,14 @@ dependencies {
 
         // 个性化广告开关设置
         GTAdSdk.getInstance().setPersonalizedAdvertisingOn(true);
+```
+
+## 5 华为荣耀 OAID maven仓库
+ repositories 中 增加如下配置
+
+```
+ maven { url 'https://developer.huawei.com/repo' }
+ maven { url 'https://developer.hihonor.com/repo' }
 ```
 
 ###  2 初始化相关类说明

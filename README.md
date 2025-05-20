@@ -1,2 +1,2 @@
-# GtAndroidSdkDemo
-广推Android广告SDK接入示例Demo
+# AdGain Android Sdk Demo
+# AdGain Android广告SDK接入示例Demo

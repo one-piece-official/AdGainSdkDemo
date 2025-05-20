@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.gt.demo.splash.SplashLandDemoActivity">
+    tools:context="com.adgain.demo.splash.SplashLandDemoActivity">
 
     <!-- 预设开屏图片区域： -->
     <!-- 开发者可以把自家App设计开屏图片摆放在这里，本示例中放置了一张静态图片。然后在 onSplashAdShow 回调中再把这个图片隐藏起来。 !-->

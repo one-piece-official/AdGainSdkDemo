@@ -33,6 +33,7 @@ dependencies {
 
         GTAdSdk.getInstance().init(this, new GtSdkConfig.Builder()
                 .appId("")       //必填，向广推商务获取
+                .channelId("")  // 渠道ID，必填，向商务获取
                 .userId("")      // 用户ID，有就填
                 .debugEnv(false)  // 是否使用测试环境域名 请求广告，正式环境务必为false
                 .showLog(false)   // 是否展示adsdk内部日志，正式环境务必为false
@@ -106,11 +107,12 @@ dependencies {
 ###  2 初始化相关类说明
 
 ####  1. GtSdkConfig
-> com.gt.sdk.api.GtSdkConfig.Builder
+> com.adgain.sdk.api.GtSdkConfig.Builder
 
 | 方法名 | 方法介绍 |
 | --- | --- |
-| appId(String appId) | 初始化sdk需要的参数。                    |
+| appId(String appId) | 必须，每个应用单独一个appid                    |
+| channelId(String channelId) | 必须，渠道ID, 一个媒体有多个app时 共用此渠道ID                    |
 | debug(boolean isLog) | sdk是否开启debug日志打印信息，默认开启。    |
 | userId(String userId) | 用户Id(非必填)。                     |
 | addCustomData(Map<String, String> customData) | 初始化传入的自定义数据。 |
@@ -119,7 +121,7 @@ dependencies {
 
 
 ####  2. GtCustomController
-> com.gt.sdk.api.GtCustomController
+> com.adgain.sdk.api.GtCustomController
 
 | 方法名 | 方法介绍 |
 | --- | --- |
@@ -132,7 +134,7 @@ dependencies {
 | String getOaid()  | 媒体可以自行传入OAID。|
 
 ####  3. GtInitCallback
-> com.gt.sdk.api.GtInitCallback
+> com.adgain.sdk.api.GtInitCallback
 
 | 方法名 | 方法介绍 |
 | --- | --- |

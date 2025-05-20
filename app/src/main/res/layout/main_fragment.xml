@@ -126,6 +126,16 @@
             android:gravity="center"
             android:text="DeviceInfo" />
 
+        <Button
+            android:id="@+id/wechat_miniprogram_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="微信小程序示例" />
+
     </LinearLayout>
 
     <TextView
@@ -139,6 +149,7 @@
         android:gravity="top|start"
         android:lineSpacingExtra="8sp"
         android:singleLine="false"
+        android:textColor="@color/black"
         android:textSize="14sp" />
 
 

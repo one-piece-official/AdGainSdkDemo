@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,7 +59,7 @@ public class SplashDemoActivity extends AppCompatActivity {
             // 展示前先判断广告是否ready
             if (splashAd != null && splashAd.isReady()) {
                 // 执行展示广告
-                splashAd.showAd(mViewGroup);
+                splashAd.showAd(getSplashContainer());
             }
         }
 

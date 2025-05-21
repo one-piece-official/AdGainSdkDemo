@@ -2,12 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-sdk tools:overrideLibrary="com.bun.miitmdid" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!--
+        // 下载类安装权限，下载完需要申请，否则无法进行安装
+    -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
         android:name="com.adgain.demo.MyApplication"
@@ -26,19 +29,19 @@
 
         <!-- 微信小程序示例Activity -->
         <activity
-            android:name=".WeChatMiniProgramDemoActivity"
+            android:name="com.adgain.demo.WeChatMiniProgramDemoActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
 
         <!-- URI Scheme测试Activity -->
         <activity
-            android:name=".mini.UriSchemeListActivity"
+            android:name="com.adgain.demo.mini.UriSchemeListActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
 
         <!-- 微信回调Activity -->
         <activity
-            android:name=".wxapi.WXEntryActivity"
+            android:name="com.adgain.demo.wxapi.WXEntryActivity"
             android:exported="true"
             android:launchMode="singleTask"
             android:taskAffinity="com.adgain.demo"

@@ -22,7 +22,6 @@ import com.adgain.demo.interstitial.InterstitialDemoActivity;
 import com.adgain.demo.mini.UriSchemeListActivity;
 import com.adgain.demo.natives.NativeAdDemoActivity;
 import com.adgain.demo.reward.RewardDemoActivity;
-import com.adgain.demo.splash.SplashLandDemoActivity;
 import com.adgain.demo.utils.UIUtil;
 import com.adgain.sdk.api.AdError;
 import com.adgain.sdk.api.AdRequest;
@@ -109,7 +108,7 @@ public class MainFragment extends Fragment implements SplashAdListener {
                 binding.interstitialButton, InterstitialDemoActivity.class,
                 binding.rewardButton, RewardDemoActivity.class,
                 binding.nativeButton, NativeAdDemoActivity.class,
-                binding.deviceInfo, SplashLandDemoActivity.class
+                binding.deviceInfo, DeviceInfoDemoActivity.class
         ).entrySet().forEach(entry -> {
             entry.getKey().setOnClickListener(v -> {
                 Intent intent = new Intent(getMyActivity(), entry.getValue());

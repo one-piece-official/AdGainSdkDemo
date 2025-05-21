@@ -180,7 +180,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="@string/gt_click_show"
+                tools:text="@string/adgain_click_show"
                 tools:visibility="visible" />
 
             <ImageView

@@ -1,5 +1,6 @@
 package com.adgain.demo;
 
+import static com.adgain.demo.Constants.APP_ID;
 import static com.adgain.demo.Constants.LOG_TAG;
 
 import android.content.Context;
@@ -39,37 +40,25 @@ public class MyApplication extends MultiDexApplication {
         Map<String, Object> customData = new HashMap<>();
         customData.put("custom_key", "custom_value");
         AdGainSdk.getInstance().init(this, new AdGainSdkConfig.Builder()
-                .appId("1105_1173")       //必填，向广推商务获取
+                .appId(APP_ID)
                 .userId("")  // 用户ID，有就填
                 .showLog(true)
                 .addCustomData(customData)  //自定义数据
                 .customController(new CustomController() {
-                    // 是否允许SDK获取位置信息
-                    @Override
-                    public boolean canReadLocation() {
-                        return true;
-                    }
-
-                    // 是否允许SDK获取手机状态地信息，如：imei deviceid
-                    @Override
-                    public boolean canUsePhoneState() {
-                        return true;
-                    }
 
                     // 是否允许SDK使用AndoridId
                     @Override
                     public boolean canUseAndroidId() {
-                        return true;
+                        return false;
                     }
                     @Override
-                    public boolean canUseWifiState() {
-                        return true;
+                    public String getAndroidId() {
+                        return "oaid";
                     }
-
                     // 为SDK提供oaid
                     @Override
                     public String getOaid() {
-                        return "oaidtest";
+                        return "";
                     }
                 })
                 .setInitCallback(new InitCallback() {
@@ -85,15 +74,13 @@ public class MyApplication extends MultiDexApplication {
                         Log.d(LOG_TAG, "init--------------onFail-----------" + code + ":" + msg);
                     }
                 }).build());
-//        String oaid = DeviceIdentifier.getOAID(this.getApplicationContext());
-
         // 个性化广告开关设置
         AdGainSdk.getInstance().setPersonalizedAdvertisingOn(true);
     }
 
-    private void appCatchHandler(){
+    private void appCatchHandler() {
         Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
-            Log.d(LOG_TAG, "appCatchHandler: uncaughtException ",throwable);
+            Log.d(LOG_TAG, "appCatchHandler: uncaughtException ", throwable);
         });
     }
 

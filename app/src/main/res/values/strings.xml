@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">AdGainDemo</string>
+    <string name="app_name" translatable="false">AdGain</string>
     <string name="load_ad">Load AD</string>
     <string name="show_ad">Show AD</string>
     <string name="_8_8w">8.8w</string>

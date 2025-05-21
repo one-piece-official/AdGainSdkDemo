@@ -9,14 +9,14 @@ buildscript {
         maven { url 'https://developer.hihonor.com/repo' }
         maven { url 'https://jitpack.io' }
 
-        maven { url 'https://developer.huawei.com/repo' }
-        maven { url 'https://developer.hihonor.com/repo' }
-
         maven {
-            // url = "/Users/wangbobo/.m2/repository"
-            url = "${System.getProperty('user.home')}/.m2/repository"
+            url "http://nexus.datads.cn/repository/maven-releases"
+            allowInsecureProtocol = true
+            credentials {
+                username = "maven-reader"
+                password = "maven-reader"
+            }
         }
-
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.2.0'
@@ -35,12 +35,14 @@ allprojects {
         maven { url 'https://jitpack.io' }
 
         maven {
-            // url = "/Users/wangbobo/.m2/repository"
-            url = "${System.getProperty('user.home')}/.m2/repository"
+            url "http://nexus.datads.cn/repository/maven-releases"
+            allowInsecureProtocol = true
+            credentials {
+                username = "maven-reader"
+                password = "maven-reader"
+            }
         }
 
-        maven { url 'https://developer.huawei.com/repo' }
-        maven { url 'https://developer.hihonor.com/repo' }
 
         flatDir {
             dirs 'libs'

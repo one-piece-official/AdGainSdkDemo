@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void testJavaCrash() {
-        throw new SecurityException("GtSdk demo test Crash!");
+        throw new SecurityException("AdGainSdk demo test Crash!");
     }
 
     @Override

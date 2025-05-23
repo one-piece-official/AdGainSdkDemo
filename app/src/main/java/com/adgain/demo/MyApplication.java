@@ -14,7 +14,9 @@ import com.adgain.sdk.api.AdGainSdkConfig;
 import com.adgain.sdk.api.CustomController;
 import com.adgain.sdk.api.InitCallback;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -57,10 +59,18 @@ public class MyApplication extends MultiDexApplication {
                         return "";
                     }
 
+                    public List<String> getInstallPackages() { // 回传检测到的app安装列表的包名（大型APP、可选）
+                        List<String> test = new ArrayList<>();
+                        test.add("com.t1.aa");
+                        test.add("com.t2.bb");
+                        return test;
+                    }
+
                     @Override
                     public String getAndroidId() {
                         return "";
                     }// 传Android系统低版本获取到的android，可选
+
                     // 为SDK提供oaid
                     @Override
                     public String getOaid() {

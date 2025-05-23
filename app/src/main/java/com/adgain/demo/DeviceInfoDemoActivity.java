@@ -23,7 +23,7 @@ public class DeviceInfoDemoActivity extends AppCompatActivity {
                 binding.sdkVersionContainer
         ).forEach(v -> v.setBackgroundColor(UIUtil.getARandomColor()));
 
-        binding.oaid.setText(AdGainSdk.getInstance().getOAID());
+        binding.oaid.setText(AdGainSdk.getInstance().getSdkInfo().get("oaid").toString());
         binding.sdvVersion.setText(AdGainSdk.getVersionName());
     }
 }

@@ -74,7 +74,7 @@ public class NativeDemoRender {
         // clickViews数量必须大于等于1
         List<View> clickableViews = new ArrayList<>();
         clickableViews.add(binding.getRoot());
-
+        clickableViews.add(binding.adCta);
         // 触发创意广告的view（点击下载 或 拨打电话 或 注册 DownloadButton的点击事件
         List<View> creativeViewList = new ArrayList<>();
         creativeViewList.add(binding.adCta);

@@ -73,8 +73,7 @@ public class NativeDemoFeedRender {
         //重要! 这个涉及到广告计费，必须正确调用。
         // 作为 creativeViewList 传入，点击不进入详情页，直接下载或进入落地页，视频和图文广告均生效
         if (adData.getAdInteractiveType() == NativeAdInteractiveType.NATIVE_DOWNLOAD && adData.getAdAppInfo() != null) {
-            adData.bindViewForInteraction(binding.getRoot(), clickableViews,  nativeAdEventListener);
-
+            adData.bindViewForInteraction(binding.getRoot(), clickableViews, nativeAdEventListener);
         } else {
             adData.bindViewForInteraction(binding.getRoot(), clickableViews, nativeAdEventListener);
         }
@@ -83,8 +82,8 @@ public class NativeDemoFeedRender {
 
         // 要等到 bindViewForInteraction调用完，再去添加 video
         if (!imageViews.isEmpty()) {
-//            adData.bindImageViews(imageViews, 0);
-
+            if (adData.getImageList().size() > 0)
+                Glide.with(context).load(adData.getImageList().get(0).imageUrl).into(binding.adImage);
         } else if (patternType == NativeAdPatternType.NATIVE_VIDEO_AD) {
 
             // 视频广告，注册mMediaView的点击事件

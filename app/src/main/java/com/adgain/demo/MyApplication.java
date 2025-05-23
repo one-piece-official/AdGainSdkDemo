@@ -51,15 +51,21 @@ public class MyApplication extends MultiDexApplication {
                     public boolean canUseAndroidId() {
                         return false;
                     }
+
+                    @Override
+                    public String getImei() { // 传Android系统低版本获取到的android，可选
+                        return "";
+                    }
+
                     @Override
                     public String getAndroidId() {
-                        return "oaid";
-                    }
+                        return "";
+                    }// 传Android系统低版本获取到的android，可选
                     // 为SDK提供oaid
                     @Override
                     public String getOaid() {
                         return "";
-                    }
+                    }// 传通过信通院oaid SDK获取到的oaid值，APP内部已获取到必传
                 })
                 .setInitCallback(new InitCallback() {
                     // 初始化成功回调，初始化成功后才可以加载广告

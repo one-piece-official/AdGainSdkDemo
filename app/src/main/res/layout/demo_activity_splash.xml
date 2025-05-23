@@ -1,19 +1,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    tools:context="com.adgain.demo.splash.SplashDemoActivity">
+    android:layout_height="match_parent">
 
     <!-- 开屏广告支持“半屏/全屏”展示，开发者可以把Logo区域放在屏幕底部，然后在Logo上方提供一个容器来放置半开屏广告，请注意此容器高度不得小于400dp -->
-
-    <ImageView
+    <TextView
         android:id="@+id/app_logo"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/app_logo" />
+        android:gravity="center"
+        android:text="LOGO 展示区域"
+        android:textColor="#aaff3333"
+        android:textSize="35sp"
+        android:textStyle="bold" />
 
     <!-- 预设开屏图片区域： -->
     <!-- 开发者可以把自家App设计开屏图片摆放在这里，本示例中放置了一张静态图片。然后在 onSplashAdShow 回调中再把这个图片隐藏起来。 !-->
@@ -26,20 +26,12 @@
         android:scaleType="centerCrop"
         android:src="@drawable/splash_bg" />
 
-    <!-- 开屏广告容器区域：-->
-    <!-- 注意：该区域高度不得小于400dp。在本示例中没有写死splash_container的高度值，是因为第1部分的app_logo区域是一个高度很小的图片。 -->
+    <!-- 开屏广告容器区域： 注意：广告容器高度需要超屏幕65% -->
     <FrameLayout
         android:id="@+id/splash_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
-        android:layout_above="@id/app_logo" />
-
- <!--   <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/black"
-        android:visibility="gone" />-->
-
+        android:layout_above="@id/app_logo"
+        android:visibility="visible" />
 
 </RelativeLayout>

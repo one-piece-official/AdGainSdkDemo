@@ -1,5 +1,7 @@
 package com.adgain.demo;
 
+import static com.adgain.demo.utils.TimeUtils.getDateTimeFormat;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -28,11 +30,9 @@ import com.adgain.sdk.api.AdRequest;
 import com.adgain.sdk.api.SplashAd;
 import com.adgain.sdk.api.SplashAdListener;
 
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 public class MainFragment extends Fragment implements SplashAdListener {
@@ -95,14 +95,14 @@ public class MainFragment extends Fragment implements SplashAdListener {
         if (mLogs != null) {
             Arrays.stream(mLogs).forEach(this::logMessage);
         }
-        
+
         // 添加微信小程序示例入口
         binding.wechatMiniprogramButton.setOnClickListener(v -> {
 //            Intent intent = new Intent(getMyActivity(), WeChatMiniProgramDemoActivity.class);
             Intent intent = new Intent(getMyActivity(), UriSchemeListActivity.class);
             startActivity(intent);
         });
-        
+
         // jump map
         Map.of(
                 binding.interstitialButton, InterstitialDemoActivity.class,
@@ -120,6 +120,7 @@ public class MainFragment extends Fragment implements SplashAdListener {
     SplashAd splashAd;
 
     private void LoadSplashAd() {
+
         initViewGroup(getMyActivity());
         Log.d(Constants.LOG_TAG, (splashAd == null) + "---------LoadSplashAd---------" + splashAdUnitId);
 
@@ -138,7 +139,6 @@ public class MainFragment extends Fragment implements SplashAdListener {
         splashAd.loadAd();
 
         logMessage("start load splash " + splashAdUnitId);
-
     }
 
     private void showSplashAd() {
@@ -171,15 +171,6 @@ public class MainFragment extends Fragment implements SplashAdListener {
         binding.logView.setText("");
     }
 
-    private static SimpleDateFormat dateFormat = null;
-
-    private static SimpleDateFormat getDateTimeFormat() {
-        if (dateFormat == null) {
-            dateFormat = new SimpleDateFormat("MM-dd HH:mm:ss SSS", Locale.CHINA);
-        }
-        return dateFormat;
-    }
-
     private void logMessage(String message) {
         Date date = new Date();
         binding.logView.append(getDateTimeFormat().format(date) + " " + message + '\n');
@@ -193,14 +184,14 @@ public class MainFragment extends Fragment implements SplashAdListener {
 
     @Override
     public void onAdCacheSuccess() {
-        Log.d(Constants.LOG_TAG, "----------onAdCacheSuccess----------" + " " + Thread.currentThread());
+        Log.d(Constants.LOG_TAG, "----------onAdCacheSuccess----------" + splashAd.getAdStatus());
 
     }
 
     @Override
     public void onSplashAdLoadFail(AdError error) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdLoadFail----------" + error.toString() + ":");
-        logMessage("onSplashAdFailToLoad:" + error + " adUnitID: ");
+        Log.d(Constants.LOG_TAG, "----------onSplashAdLoadFail----------" + error.toString() );
+        logMessage("onSplashAdFailToLoad:" + error );
         if (splashLY != null) {
             splashLY.removeAllViews();
             splashLY.setVisibility(View.GONE);
@@ -209,15 +200,15 @@ public class MainFragment extends Fragment implements SplashAdListener {
 
     @Override
     public void onSplashAdShow() {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdShow----------");
+        Log.d(Constants.LOG_TAG, "----------onSplashAdShow-----" + splashAd.getAdStatus());
         logMessage("onSplashAdShow");
         UIUtil.hideBottomUIMenu(getMyActivity());
     }
 
     @Override
     public void onSplashAdShowError(AdError error) {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdShowError----------" + error.toString() + ":");
-        logMessage("onSplashAdShowError:" + error + " adUnitID: ");
+        Log.d(Constants.LOG_TAG, "----------onSplashAdShowError----------" + error.toString() );
+        logMessage("onSplashAdShowError:" + error );
         if (splashLY != null) {
             splashLY.removeAllViews();
             splashLY.setVisibility(View.GONE);
@@ -227,7 +218,7 @@ public class MainFragment extends Fragment implements SplashAdListener {
 
     @Override
     public void onSplashAdClick() {
-        Log.d(Constants.LOG_TAG, "----------onSplashAdClicked----------");
+        Log.d(Constants.LOG_TAG, "----------onSplashAdClicked----------" + splashAd.getAdStatus());
         logMessage("onSplashAdClicked");
     }
 

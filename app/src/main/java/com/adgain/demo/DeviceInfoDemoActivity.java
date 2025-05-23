@@ -8,7 +8,6 @@ import com.adgain.demo.databinding.ActivityDeviceInfoBinding;
 import com.adgain.demo.utils.UIUtil;
 import com.adgain.sdk.AdGainSdk;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
 public class DeviceInfoDemoActivity extends AppCompatActivity {
@@ -20,70 +19,11 @@ public class DeviceInfoDemoActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         List.of(
-                binding.imeiContainer,
-                binding.gaidContainer,
                 binding.oaidContainer,
                 binding.sdkVersionContainer
         ).forEach(v -> v.setBackgroundColor(UIUtil.getARandomColor()));
 
-        binding.imei.setText(getImei());
-        binding.gaid.setText(getGaid());
-        binding.oaid.setText(getOaid());
-        binding.sdvVersion.setText(getSdkVersion());
+        binding.oaid.setText(AdGainSdk.getInstance().getOAID());
+        binding.sdvVersion.setText(AdGainSdk.getVersionName());
     }
-
-
-    private String getImei() {
-        try {
-            Class cm = Class.forName("com.adgain.sdk.share.common.ClientMetadata");
-            Method getInstance = cm.getMethod("getInstance");
-            getInstance.setAccessible(true);
-            Object instance = getInstance.invoke(cm);
-            Class<?> aClass = instance.getClass();
-            Method deviceId = aClass.getMethod("getDeviceId");
-            deviceId.setAccessible(true);
-            String invoke = (String) deviceId.invoke(instance);
-            return invoke;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "Null";
-    }
-
-    private String getOaid() {
-        try {
-            Class cm = Class.forName("com.adgain.sdk.share.common.ClientMetadata");
-            Method getInstance = cm.getMethod("getInstance");
-            getInstance.setAccessible(true);
-            Object instance = getInstance.invoke(cm);
-            Class<?> aClass = instance.getClass();
-            Method deviceId = aClass.getMethod("getOAID");
-            deviceId.setAccessible(true);
-            return (String) deviceId.invoke(instance);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "Null";
-    }
-
-    private String getGaid() {
-        try {
-            Class cm = Class.forName("com.adgain.sdk.share.common.ClientMetadata");
-            Method getInstance = cm.getMethod("getInstance");
-            getInstance.setAccessible(true);
-            Object instance = getInstance.invoke(cm);
-            Class<?> aClass = instance.getClass();
-            Method deviceId = aClass.getMethod("getAdvertisingId");
-            deviceId.setAccessible(true);
-            return (String) deviceId.invoke(instance);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "Null";
-    }
-
-    private String getSdkVersion() {
-        return AdGainSdk.getVersionName();
-    }
-
 }

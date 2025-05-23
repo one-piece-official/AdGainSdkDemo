@@ -4,7 +4,7 @@ public class Constants {
 
     public static final String LOG_TAG = "AdGainSdkDemo";
 
-    private static final boolean release = false;
+    private static final boolean release = true;
 
     public static final String APP_ID = release ? "1470_1264" : "1105_1173";
 

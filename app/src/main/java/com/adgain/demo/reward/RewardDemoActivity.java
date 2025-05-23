@@ -1,5 +1,7 @@
 package com.adgain.demo.reward;
 
+import static com.adgain.demo.utils.TimeUtils.getDateTimeFormat;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -80,7 +82,7 @@ public class RewardDemoActivity extends AppCompatActivity implements RewardAdLis
 
         mRewardAd.loadAd();
 
-        logMessage("loadAd reward [ " + " ]");
+        logMessage("loadAd reward ");
 
     }
 
@@ -117,15 +119,7 @@ public class RewardDemoActivity extends AppCompatActivity implements RewardAdLis
         binding.logView.setText("");
     }
 
-    private static SimpleDateFormat dateFormat = null;
 
-    private static SimpleDateFormat getDateTimeFormat() {
-
-        if (dateFormat == null) {
-            dateFormat = new SimpleDateFormat("MM-dd HH:mm:ss SSS", Locale.CHINA);
-        }
-        return dateFormat;
-    }
 
     private void logMessage(String message) {
         Date date = new Date();
@@ -136,43 +130,43 @@ public class RewardDemoActivity extends AppCompatActivity implements RewardAdLis
     public void onRewardAdLoadSuccess() {
         Log.d(Constants.LOG_TAG, "----------onRewardAdLoadSuccess---------- " + mRewardAd.getExtraInfo() +" " );
 //        mRewardAd.onRewardAdClosed();
-        logMessage("onRewardAdLoadSuccess [ " + " ]");
+        logMessage("onRewardAdLoadSuccess ");
     }
 
     @Override
     public void onRewardAdLoadCached() {
         Log.d(Constants.LOG_TAG, "----------onRewardAdLoadCached----------");
-        logMessage("onRewardAdLoadCached [ " + " ]");
+        logMessage("onRewardAdLoadCached ");
     }
 
     @Override
     public void onRewardAdShow() {
         Log.d(Constants.LOG_TAG, "----------onRewardAdShow----------");
-        logMessage("onRewardAdShow [ " + " ]");
+        logMessage("onRewardAdShow ");
     }
 
     @Override
     public void onRewardAdPlayStart() {
         Log.d(Constants.LOG_TAG, "----------onRewardAdPlayStart----------");
-        logMessage("onRewardAdPlayStart [ " + " ]");
+        logMessage("onRewardAdPlayStart ");
     }
 
     @Override
     public void onRewardAdPlayEnd() {
-        Log.d(Constants.LOG_TAG, "----------onRewardAdPLayEnd----------");
-        logMessage("onRewardAdPLayEnd [ " + " ]");
+        Log.d(Constants.LOG_TAG, "----------onRewardAdPlayEnd----------");
+        logMessage("onRewardAdPlayEnd ");
     }
 
     @Override
     public void onRewardAdClick() {
         Log.d(Constants.LOG_TAG, "----------onRewardAdClick----------");
-        logMessage("onRewardAdClick [ " + " ]");
+        logMessage("onRewardAdClick ");
     }
 
     @Override
     public void onRewardAdClosed() {
         Log.d(Constants.LOG_TAG, "----------onRewardAdClosed----------");
-        logMessage("onRewardAdClosed [ " + " ]");
+        logMessage("onRewardAdClosed ");
     }
 
     @Override
@@ -190,7 +184,7 @@ public class RewardDemoActivity extends AppCompatActivity implements RewardAdLis
     @Override
     public void onRewardVerify() {
         Log.d(Constants.LOG_TAG, "----------onReward----------");
-        logMessage("onReward [ " + " ]");
+        logMessage("onReward ");
     }
 
     @Override

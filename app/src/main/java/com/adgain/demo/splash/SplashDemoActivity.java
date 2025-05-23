@@ -46,7 +46,6 @@ public class SplashDemoActivity extends AppCompatActivity {
 
     private final SplashAdListener mSplashAdListener = new SplashAdListener() {
 
-        // 开屏广告加载成功通知，加载成功后才可以展示广告
         @Override
         public void onAdLoadSuccess() {
             Log.d(Constants.LOG_TAG, "----------onSplashAdLoadSuccess---" + splashAd.isReady() + ":" + " " + splashAd.getBidPrice() +" " + splashAd.getExtraInfo());
@@ -95,7 +94,7 @@ public class SplashDemoActivity extends AppCompatActivity {
         // 开屏广告关闭通知
         @Override
         public void onSplashAdClose(boolean isSkip) {
-            Log.d(Constants.LOG_TAG, "----------onSplashAdClose----------");
+            Log.d(Constants.LOG_TAG, "----------onSplashAdClose---------" + isSkip);
             logs.add("onSplashAdClose");
             if (isForeground) {
                 gotoMainActivity();

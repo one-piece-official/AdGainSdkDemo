@@ -186,25 +186,6 @@ public class NativeAdRecycleDemoActivity extends AppCompatActivity {
 
         private View createNativeAdView(NativeAdData nativeAdData, AdViewHolder adViewHolder) {
 
-            nativeAdData.setDislikeInteractionCallback(mActivity, new NativeAdData.DislikeInteractionCallback() {
-                @Override
-                public void onShow() {
-                    Log.d(Constants.LOG_TAG, "----------onShow----------");
-                }
-
-                @Override
-                public void onSelected(int position, String value, boolean enforce) {
-                    Log.d(Constants.LOG_TAG, "----------onSelected----------:" + position + ":" + value + ":" + enforce);
-                    //用户选择不喜欢原因后，移除广告展示
-                    mData.remove(nativeAdData);
-                    notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancel() {
-                    Log.d(Constants.LOG_TAG, "----------onCancel----------");
-                }
-            });
             // 广告交互监听
             return adViewHolder.adRender.renderAdView(nativeAdData, new NativeAdEventListener() {
                 @Override

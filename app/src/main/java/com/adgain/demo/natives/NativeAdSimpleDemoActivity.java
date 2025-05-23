@@ -1,6 +1,8 @@
 package com.adgain.demo.natives;
 
 
+import static com.adgain.demo.utils.TimeUtils.getDateTimeFormat;
+
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -59,44 +61,42 @@ public class NativeAdSimpleDemoActivity extends AppCompatActivity implements Vie
     public void onClick(View v) {
         Button button = (Button) v;
         String text = (String) button.getText();
-        String adUnitID = text.substring(text.indexOf("-") + 1);
+        String codeId = text.substring(text.indexOf("-") + 1);
 
         Log.d(Constants.LOG_TAG, "---------onClick---------" + text);
 
         if (text.startsWith("native LOAD-")) {
-            loadAd(adUnitID);
+            loadAd(codeId);
 
         } else {
-            showAd(adUnitID);
+            showAd(codeId);
         }
     }
 
-    private void loadAd(String adUnitID) {
+    private void loadAd(String codeId) {
 
-        Log.d(Constants.LOG_TAG, (nativeAd == null) + " native ---------loadAd---------" + adUnitID);
+        Log.d(Constants.LOG_TAG, (nativeAd == null) + " native ---------loadAd---------" + codeId);
 
         if (null == nativeAd) {
             Map<String, Object> options = new HashMap<>();
             options.put("test_extra_key", "test_extra_value");
-            AdRequest adRequest = new AdRequest
-                    .Builder()
-                    .setCodeId(adUnitID) // 设置广告位id
+            AdRequest adRequest = new AdRequest.Builder()
+                    .setCodeId(codeId) // 设置广告位id
                     .setExtOption(options) // 自定义参数
                     .build();
             // 创建广告对象
             nativeAd = new NativeUnifiedAd(adRequest, new NativeAdLoadListener() {
                 @Override
-                public void onAdError( AdError error) {
-                    Log.d(Constants.LOG_TAG, "----------onAdError----------:" + error.toString() + ":" + adUnitID);
-                    logMessage("onAdError() called with: error = [" + error + "], adUnitID = [" + adUnitID + "]");
+                public void onAdError(AdError error) {
+                    Log.d(Constants.LOG_TAG, "----------onAdError----------:" + error.toString() + ":" + codeId);
+                    logMessage("onAdError() called with: error = [" + error + "], codeId = [" + codeId + "]");
                 }
 
                 @Override
-                public void onAdLoad( List<NativeAdData> adDataList) {
-                    logMessage("onAdLoad [ " + adUnitID + " ]  ");
-
+                public void onAdLoad(List<NativeAdData> adDataList) {
+                    logMessage("onAdLoad [ " + codeId + " ]  ");
                     if (adDataList != null && !adDataList.isEmpty()) {
-                        Log.d(Constants.LOG_TAG, "onAdLoad [ " + adUnitID + " ]  adUnitID = " + adUnitID + "   adDataList = " + adDataList);
+                        Log.d(Constants.LOG_TAG, "onAdLoad   adDataList = " + adDataList);
                         currentAdDataList = adDataList;
                     }
                 }
@@ -104,11 +104,11 @@ public class NativeAdSimpleDemoActivity extends AppCompatActivity implements Vie
         }
         // 请求广告
         nativeAd.loadAd();
-        logMessage("loadAd [ " + adUnitID + " ]");
+        logMessage("loadAd [ " + codeId + " ]");
     }
 
-    private void showAd(final String adUnitID) {
-        Log.d(Constants.LOG_TAG, "---------showAd---------" + adUnitID);
+    private void showAd(final String codeId) {
+        Log.d(Constants.LOG_TAG, "---------showAd---------" + codeId);
 
         List<NativeAdData> unifiedADDataList = currentAdDataList;
 
@@ -134,27 +134,6 @@ public class NativeAdSimpleDemoActivity extends AppCompatActivity implements Vie
     }
 
     private View buildView(NativeAdData nativeAdData) {
-
-        //设置广告交互监听
-        nativeAdData.setDislikeInteractionCallback(this, new NativeAdData.DislikeInteractionCallback() {
-
-            @Override
-            public void onShow() {
-                Log.d(Constants.LOG_TAG, "----------onShow----------");
-            }
-
-            @Override
-            public void onSelected(int position, String value, boolean enforce) {
-                Log.d(Constants.LOG_TAG, "----------onSelected----------:" + position + ":" + value + ":" + enforce);
-                binding.adContainer.removeAllViews();
-                logMessage("onAdClose()");
-            }
-
-            @Override
-            public void onCancel() {
-                Log.d(Constants.LOG_TAG, "----------onCancel----------");
-            }
-        });
 
         //媒体自渲染的View
         NativeDemoRender adRender = new NativeDemoRender(this);
@@ -193,22 +172,12 @@ public class NativeAdSimpleDemoActivity extends AppCompatActivity implements Vie
 
     private void updateAdButtons() {
         try {
-            String adUnitID = Constants.NATIVE_ADCOID;
-            UIUtil.createAdButtonsLayout(this, "native", adUnitID, binding.adButtonsLayout, this);
+            String codeId = Constants.NATIVE_ADCOID;
+            UIUtil.createAdButtonsLayout(this, "native", codeId, binding.adButtonsLayout, this);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    private static SimpleDateFormat dateFormat = null;
-
-    private static SimpleDateFormat getDateTimeFormat() {
-        if (dateFormat == null) {
-            dateFormat = new SimpleDateFormat("MM-dd HH:mm:ss SSS", Locale.CHINA);
-        }
-        return dateFormat;
-    }
-
     private void cleanLog() {
         binding.logView.setText("");
     }

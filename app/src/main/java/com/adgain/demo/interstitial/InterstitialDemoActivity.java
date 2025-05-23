@@ -1,5 +1,7 @@
 package com.adgain.demo.interstitial;
 
+import static com.adgain.demo.utils.TimeUtils.getDateTimeFormat;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -79,7 +81,7 @@ public class InterstitialDemoActivity extends AppCompatActivity implements Inter
 
         mInterstitialAd.loadAd();
 
-        logMessage("loadAd [ " + " ]");
+        logMessage("loadAd ");
     }
 
     private void showAd() {
@@ -114,17 +116,6 @@ public class InterstitialDemoActivity extends AppCompatActivity implements Inter
     private void cleanLog() {
         binding.logView.setText("");
     }
-
-    private static SimpleDateFormat dateFormat = null;
-
-    private static SimpleDateFormat getDateTimeFormat() {
-
-        if (dateFormat == null) {
-            dateFormat = new SimpleDateFormat("MM-dd HH:mm:ss SSS", Locale.CHINA);
-        }
-        return dateFormat;
-    }
-
     private void logMessage(String message) {
         Date date = new Date();
         binding.logView.append(getDateTimeFormat().format(date) + " " + message + '\n');
@@ -133,49 +124,49 @@ public class InterstitialDemoActivity extends AppCompatActivity implements Inter
     @Override
     public void onInterstitialAdLoadSuccess() {
         Log.d(Constants.LOG_TAG, "----------onInterstitialAdLoadSuccess---------- " + mInterstitialAd.getExtraInfo());
-        logMessage("onInterstitialAdLoadSuccess [ " + " ]");
+        logMessage("onInterstitialAdLoadSuccess ");
     }
 
     @Override
     public void onInterstitialAdLoadCached() {
         Log.d(Constants.LOG_TAG, "----------onInterstitialAdLoadCached----------");
-        logMessage("onInterstitialAdLoadCached [ " + " ]");
+        logMessage("onInterstitialAdLoadCached ");
     }
 
     @Override
     public void onInterstitialAdShow() {
         Log.d(Constants.LOG_TAG, "----------onInterstitialAdShow----------");
-        logMessage("onInterstitialAdShow [ " + " ]");
+        logMessage("onInterstitialAdShow ");
     }
 
     @Override
     public void onInterstitialAdPlayEnd() {
-        Log.d(Constants.LOG_TAG, "----------onInterstitialAdPLayEnd----------");
-        logMessage("onInterstitialAdPLayEnd [ " + " ]");
+        Log.d(Constants.LOG_TAG, "----------onInterstitialAdPlayEnd----------");
+        logMessage("onInterstitialAdPlayEnd ");
     }
 
     @Override
     public void onInterstitialAdClick() {
         Log.d(Constants.LOG_TAG, "----------onInterstitialAdClick----------");
-        logMessage("onInterstitialAdClick [ " + " ]");
+        logMessage("onInterstitialAdClick ");
     }
 
     @Override
     public void onInterstitialAdClosed() {
         Log.d(Constants.LOG_TAG, "----------onInterstitialAdClosed----------");
-        logMessage("onInterstitialAdClosed [ " + " ]");
+        logMessage("onInterstitialAdClosed ");
     }
 
     @Override
     public void onInterstitialAdLoadError(AdError error) {
         Log.d(Constants.LOG_TAG, "----------onInterstitialAdLoadError----------" + error.toString() + ":");
-        logMessage("onInterstitialAdLoadError() called with: error = [" + error + "], codeId = [" + "]");
+        logMessage("onInterstitialAdLoadError() called with: error = [" + error);
     }
 
     @Override
     public void onInterstitialAdShowError(AdError error) {
         Log.d(Constants.LOG_TAG, "----------onInterstitialAdShowError----------" + error.toString() + ":");
-        logMessage("onInterstitialAdShowError() called with: error = [" + error + "], codeId = [" + "]");
+        logMessage("onInterstitialAdShowError() called with: error = [" + error);
     }
 
     @Override

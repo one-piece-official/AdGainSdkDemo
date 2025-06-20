@@ -2,148 +2,74 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="15dp">
 
-    <LinearLayout
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="AdGain SDK DEMO"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/sdk_init"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="SDK 初始化" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/splash_button_load"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Splash-Load" />
-
-            <Button
-                android:id="@+id/splash_button_ready"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Splash-isready" />
-
-            <Button
-                android:id="@+id/splash_button_show"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Splash-Show" />
-
-        </LinearLayout>
-
-        <!--        <Button-->
-        <!--            android:id="@+id/reward_button"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginLeft="10dp"-->
-        <!--            android:layout_marginTop="10dp"-->
-        <!--            android:layout_marginRight="10dp"-->
-        <!--            android:gravity="center"-->
-        <!--            android:text="RewardVideoAD" />-->
-
-        <Button
-            android:id="@+id/interstitial_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:text="Interstitial-AD" />
-
-
-        <Button
-            android:id="@+id/reward_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:text="Reward-AD" />
-
-        <Button
-            android:id="@+id/native_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:text="Native-AD" />
-
-        <!--        <Button-->
-        <!--            android:id="@+id/banner_button"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginLeft="10dp"-->
-        <!--            android:layout_marginTop="10dp"-->
-        <!--            android:layout_marginRight="10dp"-->
-        <!--            android:gravity="center"-->
-        <!--            android:text="BannerAD" />-->
-    </LinearLayout>
-
-    <LinearLayout
+    <Button
+        android:id="@+id/splash_button_load"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="开屏广告" />
 
-        <Button
-            android:id="@+id/cleanLog_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:text="Clean Log" />
 
-        <Button
-            android:id="@+id/device_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:text="DeviceInfo" />
+    <Button
+        android:id="@+id/interstitial_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="插屏广告" />
 
-        <Button
-            android:id="@+id/wechat_miniprogram_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:text="微信小程序示例" />
+    <Button
+        android:id="@+id/reward_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="激励视频" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/native_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="信息流" />
+
+
+    <Button
+        android:id="@+id/cleanLog_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="清除日志" />
+
 
     <TextView
         android:id="@+id/logView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:ellipsize="end"
         android:ems="10"
         android:gravity="top|start"
@@ -151,6 +77,5 @@
         android:singleLine="false"
         android:textColor="@color/black"
         android:textSize="14sp" />
-
 
 </LinearLayout>

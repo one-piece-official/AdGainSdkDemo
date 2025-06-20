@@ -28,7 +28,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/ad_logo"
+                android:id="@+id/ad_icon"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
@@ -47,8 +47,8 @@
                 android:singleLine="true"
                 android:textColor="#ff333333"
                 android:textSize="16sp"
-                app:layout_constraintLeft_toRightOf="@+id/ad_logo"
-                app:layout_constraintTop_toTopOf="@+id/ad_logo"
+                app:layout_constraintLeft_toRightOf="@+id/ad_icon"
+                app:layout_constraintTop_toTopOf="@+id/ad_icon"
                 tools:text="广告标题" />
 
             <TextView
@@ -107,7 +107,7 @@
             <FrameLayout
                 android:id="@+id/ad_video_container"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:background="#000" />
 
             <!-- 原生广告大图 -->

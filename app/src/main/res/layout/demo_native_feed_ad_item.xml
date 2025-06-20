@@ -64,7 +64,7 @@
         android:padding="5dp">
 
         <ImageView
-            android:id="@+id/ad_logo"
+            android:id="@+id/ad_icon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -76,8 +76,8 @@
             android:id="@+id/ad_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/ad_logo"
-            app:layout_constraintTop_toTopOf="@id/ad_logo"
+            app:layout_constraintLeft_toRightOf="@id/ad_icon"
+            app:layout_constraintTop_toTopOf="@id/ad_icon"
             android:layout_marginStart="5dp"
             android:textSize="16sp"
             android:textColor="#333333"
@@ -93,7 +93,7 @@
             tools:text="广告描述内容, 广告描述内容, 广告描述内容, 广告描述内容"
             app:layout_constraintTop_toBottomOf="@id/ad_title"
             app:layout_constraintLeft_toLeftOf="@id/ad_title"
-            app:layout_constraintBottom_toBottomOf="@id/ad_logo"
+            app:layout_constraintBottom_toBottomOf="@id/ad_icon"
             android:maxLines="2"
             android:ellipsize="end"
             android:gravity="center_vertical"
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="ad_logo,ad_desc,ad_title"
+            app:constraint_referenced_ids="ad_icon,ad_desc,ad_title"
             />
 
         <Button

@@ -50,16 +50,7 @@
             android:gravity="center"
             android:text="NativeAD - RecyclerView" />
 
-        <Button
-            android:id="@+id/native_draw_recycle_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:visibility="gone"
-            android:text="NativeAD - 信息流" />
+
     </LinearLayout>
 
 </ScrollView>

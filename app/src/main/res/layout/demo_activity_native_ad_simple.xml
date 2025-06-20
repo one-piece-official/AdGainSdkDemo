@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:scrollbars="none"
-    tools:context=".natives.NativeAdSimpleDemoActivity">
+    android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,8 +15,7 @@
             android:id="@+id/ad_buttons_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-        </LinearLayout>
+            android:orientation="vertical"></LinearLayout>
 
         <Button
             android:id="@+id/cleanLog_button"
@@ -33,7 +30,7 @@
             android:id="@+id/ad_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp" />
+            android:layout_margin="10dp" />
 
         <TextView
             android:id="@+id/logView"
@@ -48,11 +45,6 @@
             android:singleLine="false"
             android:textSize="14sp" />
 
-        <!--        <View-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="1200dp"-->
-        <!--            android:layout_margin="10dp"-->
-        <!--            android:background="@android:color/transparent" />-->
 
     </LinearLayout>
 

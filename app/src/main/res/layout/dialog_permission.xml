@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#55333333">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingBottom="15dp">
+
+
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="温馨提示"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/close"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:text="关闭"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/disagreeBtn"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_title">
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3dp"
+                android:padding="15dp"
+                android:text="欢迎您使用Adgain Sdk，请您充分阅读并理解Adgain Sdk隐私政策使用规范\n1.在您使用Adgain Sdk及相关服务的过程中，我们将
+根据合法、正当、必要的原则收集信息。为给您提
+供更好的服务体验，我们可能记录网络日志信息，
+以及使用软件及相关服务的频率、崩溃数据、性能数据等信息，以帮助我们排
+查以及解决故障问题。\n
+2.为了保障产品与服务的安全、高效运转，当您使
+用Adgain Sdk时，我们可能会使用相关技
+术向您的设备发送一个或多个Cookie或匿名标识
+符，以收集和存储您访问、使用本产品时的信息。\n
+3.我们会采用各种安全技术保护您的个人信息，不
+随意从第三方获取、共享或对外提供您的信息。\n
+4.我们非常重视您对个人信息的管理，并尽全力保
+护您对于您个人信息的查询、访问、修改、删除等权利，以
+使您有能力保障您的隐私和安全\n"
+                android:textSize="14sp" />
+        </ScrollView>
+
+        <Button
+            android:id="@+id/disagreeBtn"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/btn_stroke1_bg"
+            android:text="不同意"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/agreeBtn"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/adgain_shape_cta_bt"
+            android:text="同意并继续"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

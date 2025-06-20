@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.adgain.demo.android">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,7 +13,7 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
-        android:name="com.adgain.demo.MyApplication"
+        android:name="com.adgain.sdk.MyApplication"
         android:allowBackup="true"
         android:debuggable="true"
         android:icon="@mipmap/app_icon"
@@ -26,97 +27,41 @@
         tools:replace="android:allowBackup"
         tools:targetApi="24">
 
-        <!-- 微信小程序示例Activity -->
         <activity
-            android:name="com.adgain.demo.WeChatMiniProgramDemoActivity"
+            android:name="com.adgain.sdk.natives.NativeAdRecycleDemoActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.adgain.sdk.natives.NativeAdListDemoActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.adgain.sdk.natives.NativeAdSimpleDemoActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.adgain.sdk.natives.NativeAdDemoActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.adgain.sdk.InterstitialActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.adgain.sdk.RewardActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
 
-        <!-- URI Scheme测试Activity -->
         <activity
-            android:name="com.adgain.demo.mini.UriSchemeListActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait" />
-
-        <!-- 微信回调Activity -->
-        <activity
-            android:name="com.adgain.demo.wxapi.WXEntryActivity"
+            android:name="com.adgain.sdk.SplashActivity"
             android:exported="true"
-            android:launchMode="singleTask"
-            android:taskAffinity="com.adgain.demo"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name="com.adgain.demo.DeviceInfoDemoActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.adgain.demo.natives.NativeAdFeedDemoActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.adgain.demo.natives.NativeAdRecycleDemoActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.adgain.demo.natives.NativeAdListDemoActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.adgain.demo.natives.NativeAdSimpleDemoActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.adgain.demo.natives.NativeAdDemoActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait" />
-
-        <!--
-                android:screenOrientation="landscape"
-        -->
-        <activity
-            android:name="com.adgain.demo.interstitial.InterstitialDemoActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait" />
-
-        <!--
-                android:configChanges="orientation|screenSize"
-                业务一定要加，否则竖屏无法切换到横屏
-        -->
-        <activity
-            android:name="com.adgain.demo.reward.RewardDemoActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name="com.adgain.demo.splash.SplashDemoActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name="com.adgain.demo.splash.SplashLandDemoActivity"
-            android:exported="true"
-            android:screenOrientation="landscape">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-        </activity>
-
-        <activity
-            android:name="com.adgain.demo.MainActivity"
+            android:name="com.adgain.sdk.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:hardwareAccelerated="true"
@@ -128,10 +73,12 @@
 
         </activity>
 
-        <activity
-            android:name="com.adgain.demo.LeakActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait" />
+        <activity android:name="com.adgain.sdk.utils.DialogAct">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

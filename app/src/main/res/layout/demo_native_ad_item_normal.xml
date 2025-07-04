@@ -58,6 +58,7 @@
                 android:gravity="center_vertical"
                 android:maxLines="2"
                 android:textColor="#ff666666"
+                android:layout_marginBottom="10dp"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="@+id/ad_title"
@@ -114,9 +115,8 @@
             <ImageView
                 android:id="@+id/ad_image"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:minHeight="200dp"
-                android:scaleType="centerCrop" />
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY" />
 
             <!-- 原生图片组广告 -->
             <LinearLayout

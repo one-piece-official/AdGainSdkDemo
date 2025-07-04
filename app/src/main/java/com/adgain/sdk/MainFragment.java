@@ -160,7 +160,7 @@ public class MainFragment extends Fragment {
                     // 为SDK提供oaid
                     @Override
                     public String getOaid() {
-                        return "";
+                        return "oaid_test";
                     }// 传通过信通院oaid SDK获取到的oaid值，APP内部已获取到必传
                 })
                 .setInitCallback(new InitCallback() {

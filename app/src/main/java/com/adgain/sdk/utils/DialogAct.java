@@ -52,6 +52,7 @@ public class DialogAct extends AppCompatActivity {
                 sharedPreferences.edit().putBoolean("isFirst", false).apply();
                 Intent intent = new Intent(DialogAct.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         TextView content = findViewById(R.id.content);

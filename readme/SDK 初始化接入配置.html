@@ -367,12 +367,15 @@ dependencies {
 }</code></pre></div>
 
 <div><pre><code class="language-groovy">dependencies {
-    implementation &#39;com.adgain:adgain-sdk:4.0.4&#39;
+    implementation &#39;com.adgain:adgain-sdk:xxx&#39;
 }</code></pre></div>
 
 <h2 id="toc_6">4. SDK初始化配置</h2>
 
-<div><pre><code class="language-java">        Map&lt;String, Object&gt; customData = new HashMap&lt;&gt;();
+<div><pre><code class="language-java">        // 个性化广告开关设置
+        AdGainSdk.getInstance().setPersonalizedAdvertisingOn(true);
+        
+        Map&lt;String, Object&gt; customData = new HashMap&lt;&gt;();
         customData.put(&quot;custom_key&quot;, &quot;custom_value&quot;);
 
         AdGainSdk.getInstance().init(this, new AdGainSdkConfig.Builder()
@@ -422,9 +425,7 @@ dependencies {
                         Log.d(Constants.LOG_TAG, &quot;init--------------onFail-----------&quot; + code + &quot;:&quot; + msg);
                     }
                 }).build());
-
-        // 个性化广告开关设置
-        AdGainSdk.getInstance().setPersonalizedAdvertisingOn(true);</code></pre></div>
+        </code></pre></div>
 
 <h3 id="toc_7">2 初始化相关类说明</h3>
 

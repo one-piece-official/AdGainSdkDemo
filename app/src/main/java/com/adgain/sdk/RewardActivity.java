@@ -130,7 +130,7 @@ public class RewardActivity extends AppCompatActivity implements RewardAdListene
 
     @Override
     public void onRewardAdLoadSuccess() {
-        Log.d(Constants.LOG_TAG, "----------onRewardAdLoadSuccess---------- " + mRewardAd.getExtraInfo() + " ");
+        Log.d(Constants.LOG_TAG, "----------onRewardAdLoadSuccess---- price = " + mRewardAd.getBidPrice() + "   " + mRewardAd.getExtraInfo() + " ");
         logMessage("onRewardAdLoadSuccess ");
     }
 

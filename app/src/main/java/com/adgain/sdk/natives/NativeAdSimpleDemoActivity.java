@@ -106,61 +106,9 @@ public class NativeAdSimpleDemoActivity extends AppCompatActivity implements Vie
                         Log.d(Constants.LOG_TAG, "----Native   adDataList = " + (adDataList.get(0).getFeedView() != null));
                         currentAdDataList = adDataList;
                         NativeAdData data = adDataList.get(0);
-                        if (data.getFeedView() != null) {
-                            adContainer.removeAllViews();
-                            data.setNativeAdEventListener(new NativeAdEventListener() {
-                                @Override
-                                public void onAdExposed() {
-                                    Log.d(Constants.LOG_TAG, "----Native   onAdExposed ");
-                                }
+                        Log.d(Constants.LOG_TAG, "----Native   price = " + data.getPrice());
 
-                                @Override
-                                public void onAdClicked() {
-                                    Log.d(Constants.LOG_TAG, "----Native   onAdClicked ");
-
-                                }
-
-                                @Override
-                                public void onAdRenderFail(AdError error) {
-
-                                }
-                            });
-                            adContainer.addView(data.getFeedView());
-                            data.setNativeAdEventListener(listener);
-                            data.setNativeAdMediaListener(new NativeAdData.NativeAdMediaListener() {
-                                @Override
-                                public void onVideoLoad() {
-                                    Log.d(Constants.LOG_TAG, "----Native   onVideoLoad ");
-                                }
-
-                                @Override
-                                public void onVideoError(AdError error) {
-
-                                }
-
-                                @Override
-                                public void onVideoStart() {
-                                    Log.d(Constants.LOG_TAG, "----Native   onVideoStart ");
-
-                                }
-
-                                @Override
-                                public void onVideoPause() {
-
-                                }
-
-                                @Override
-                                public void onVideoResume() {
-
-                                }
-
-                                @Override
-                                public void onVideoCompleted() {
-
-                                }
-                            });
-                        }
-//                        showAd(codeId);
+                        expressShow(data);
                     }
                 }
             });
@@ -168,6 +116,49 @@ public class NativeAdSimpleDemoActivity extends AppCompatActivity implements Vie
         // 请求广告
         nativeAd.loadAd();
         logMessage("loadAd [ " + codeId + " ]");
+    }
+
+    private void expressShow(NativeAdData data) {
+        // data.getFeedView() 不为空 则是 模版类型，  为空是自渲染类型
+        if (data.getFeedView() != null) {
+
+            adContainer.removeAllViews();
+            adContainer.addView(data.getFeedView());
+
+            data.setNativeAdEventListener(listener);
+            data.setNativeAdMediaListener(new NativeAdData.NativeAdMediaListener() {
+                @Override
+                public void onVideoLoad() {
+                    Log.d(Constants.LOG_TAG, "----Native   onVideoLoad ");
+                }
+
+                @Override
+                public void onVideoError(AdError error) {
+
+                }
+
+                @Override
+                public void onVideoStart() {
+                    Log.d(Constants.LOG_TAG, "----Native   onVideoStart ");
+
+                }
+
+                @Override
+                public void onVideoPause() {
+
+                }
+
+                @Override
+                public void onVideoResume() {
+
+                }
+
+                @Override
+                public void onVideoCompleted() {
+
+                }
+            });
+        }
     }
 
     private void showAd(final String codeId) {

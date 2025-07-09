@@ -126,7 +126,7 @@ public class InterstitialActivity extends AppCompatActivity implements Interstit
 
     @Override
     public void onInterstitialAdLoadSuccess() {
-        Log.d(Constants.LOG_TAG, "----------onInterstitialAdLoadSuccess---------- " + mInterstitialAd.getExtraInfo());
+        Log.d(Constants.LOG_TAG, "----------onInterstitialAdLoadSuccess---- price = " +mInterstitialAd.getBidPrice() + "   " + mInterstitialAd.getExtraInfo());
         logMessage("onInterstitialAdLoadSuccess ");
     }
 

@@ -57,8 +57,6 @@ public class NativeAdSimpleDemoActivity extends AppCompatActivity implements Vie
         logView.setOnLongClickListener(v -> true);
         logView.setMovementMethod(ScrollingMovementMethod.getInstance());
 
-        WebView.setWebContentsDebuggingEnabled(true);
-
         updateAdButtons();
     }
 
@@ -67,12 +65,9 @@ public class NativeAdSimpleDemoActivity extends AppCompatActivity implements Vie
         Button button = (Button) v;
         String text = (String) button.getText();
         String codeId = text.substring(text.indexOf("-") + 1);
-
         Log.d(Constants.LOG_TAG, "---------onClick---------" + text);
-
-        if (text.startsWith("native LOAD-")) {
+        if (text.contains("LOAD-")) {
             loadAd(codeId);
-
         } else {
             showAd(codeId);
         }
@@ -82,99 +77,87 @@ public class NativeAdSimpleDemoActivity extends AppCompatActivity implements Vie
 
         Log.d(Constants.LOG_TAG, (nativeAd == null) + " native ---------loadAd---------" + codeId);
 
-        if (null == nativeAd) {
-            Map<String, Object> options = new HashMap<>();
-            options.put("test_extra_key", "test_extra_value");
-            AdRequest adRequest = new AdRequest.Builder()
-                    .setCodeId(codeId) // 设置广告位id
-                    .setWidth(UIUtil.getScreenWidthInPx(this) - dp2px(getApplicationContext(), 20))
-                    .setHeight(500)
-                    .setExtOption(options) // 自定义参数
-                    .build();
-            // 创建广告对象
-            nativeAd = new NativeUnifiedAd(adRequest, new NativeAdLoadListener() {
-                @Override
-                public void onAdError(AdError error) {
-                    Log.d(Constants.LOG_TAG, "----------onAdError----------:" + error.toString() + ":" + codeId);
-                    logMessage("onAdError() called with: error = [" + error + "], codeId = [" + codeId + "]");
-                }
+        Map<String, Object> options = new HashMap<>();
+        options.put("test_extra_key", "test_extra_value");
+        AdRequest adRequest = new AdRequest.Builder()
+                .setCodeId(codeId) // 设置广告位id
+                .setWidth(UIUtil.getScreenWidthInPx(this) - dp2px(getApplicationContext(), 20))
+                .setHeight(500)
+                .setExtOption(options) // 自定义参数
+                .build();
+        // 创建广告对象
+        nativeAd = new NativeUnifiedAd(adRequest, new NativeAdLoadListener() {
+            @Override
+            public void onAdError(AdError error) {
+                Log.d(Constants.LOG_TAG, "----------onAdError----------:" + error.toString() + ":" + codeId);
+                logMessage("onAdError() called with: error = [" + error + "], codeId = [" + codeId + "]");
+            }
 
-                @Override
-                public void onAdLoad(List<NativeAdData> adDataList) {
-                    logMessage("onAdLoad [ " + codeId + " ]  ");
-                    if (adDataList != null && !adDataList.isEmpty()) {
-                        Log.d(Constants.LOG_TAG, "----Native   adDataList = " + (adDataList.get(0).getFeedView() != null));
-                        currentAdDataList = adDataList;
-                        NativeAdData data = adDataList.get(0);
-                        Log.d(Constants.LOG_TAG, "----Native   price = " + data.getPrice());
-
-                        expressShow(data);
-                    }
+            @Override
+            public void onAdLoad(List<NativeAdData> adDataList) {
+                logMessage("onAdLoad [ " + codeId + " ]  ");
+                if (adDataList != null && !adDataList.isEmpty()) {
+                    Log.d(Constants.LOG_TAG, "----Native   adDataList = " + (adDataList.get(0).getFeedView() != null));
+                    currentAdDataList = adDataList;
                 }
-            });
-        }
+            }
+        });
         // 请求广告
         nativeAd.loadAd();
         logMessage("loadAd [ " + codeId + " ]");
     }
 
     private void expressShow(NativeAdData data) {
-        // data.getFeedView() 不为空 则是 模版类型，  为空是自渲染类型
-        if (data.getFeedView() != null) {
+        adContainer.removeAllViews();
+        adContainer.addView(data.getFeedView());
+        data.setNativeAdEventListener(listener);
+        data.setNativeAdMediaListener(new NativeAdData.NativeAdMediaListener() {
+            @Override
+            public void onVideoLoad() {
+                Log.d(Constants.LOG_TAG, "----Native   onVideoLoad ");
+            }
 
-            adContainer.removeAllViews();
-            adContainer.addView(data.getFeedView());
+            @Override
+            public void onVideoError(AdError error) {
 
-            data.setNativeAdEventListener(listener);
-            data.setNativeAdMediaListener(new NativeAdData.NativeAdMediaListener() {
-                @Override
-                public void onVideoLoad() {
-                    Log.d(Constants.LOG_TAG, "----Native   onVideoLoad ");
-                }
+            }
 
-                @Override
-                public void onVideoError(AdError error) {
+            @Override
+            public void onVideoStart() {
+                Log.d(Constants.LOG_TAG, "----Native   onVideoStart ");
 
-                }
+            }
 
-                @Override
-                public void onVideoStart() {
-                    Log.d(Constants.LOG_TAG, "----Native   onVideoStart ");
+            @Override
+            public void onVideoPause() {
 
-                }
+            }
 
-                @Override
-                public void onVideoPause() {
+            @Override
+            public void onVideoResume() {
 
-                }
+            }
 
-                @Override
-                public void onVideoResume() {
+            @Override
+            public void onVideoCompleted() {
 
-                }
-
-                @Override
-                public void onVideoCompleted() {
-
-                }
-            });
-        }
+            }
+        });
     }
 
     private void showAd(final String codeId) {
         Log.d(Constants.LOG_TAG, "---------showAd---------" + codeId);
 
         List<NativeAdData> unifiedADDataList = currentAdDataList;
-
         if (unifiedADDataList != null && !unifiedADDataList.isEmpty()) {
-
             NativeAdData nativeAdData = unifiedADDataList.get(0);
-
-            View view = buildView(nativeAdData);
-            // 媒体最终将要展示广告的容器
-            adContainer.removeAllViews();
-            adContainer.addView(view);
-
+            if (nativeAdData.getFeedView() == null) { //data.getFeedView()不为空为信息流模版，为空是自渲染类型
+                View view = buildView(nativeAdData);// 媒体最终将要展示广告的容器
+                adContainer.removeAllViews();
+                adContainer.addView(view);
+            } else {
+                expressShow(nativeAdData);
+            }
         } else {
             logMessage("Ad is not Ready");
             Log.d(Constants.LOG_TAG, "--------请先加载广告--------");
@@ -229,7 +212,9 @@ public class NativeAdSimpleDemoActivity extends AppCompatActivity implements Vie
     private void updateAdButtons() {
         try {
             String codeId = Constants.NATIVE_ADCOID;
-            UIUtil.createAdButtonsLayout(this, "native", codeId, adButtonsLayout, this);
+            UIUtil.createAdButtonsLayout(this, "Native", codeId, adButtonsLayout, this);
+            String expressId = Constants.EXPRESS_ADCOID;
+            UIUtil.createAdButtonsLayout(this, "Expree", expressId, adButtonsLayout, this);
         } catch (Exception e) {
             e.printStackTrace();
         }

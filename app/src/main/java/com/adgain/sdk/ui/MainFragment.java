@@ -1,4 +1,4 @@
-package com.adgain.sdk;
+package com.adgain.sdk.ui;
 
 import static com.adgain.sdk.Constants.APP_ID;
 import static com.adgain.sdk.Constants.LOG_TAG;
@@ -22,6 +22,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.adgain.sdk.AdGainSdk;
+import com.adgain.sdk.Constants;
 import com.adgain.sdk.api.AdGainSdkConfig;
 import com.adgain.sdk.api.CustomController;
 import com.adgain.sdk.api.InitCallback;

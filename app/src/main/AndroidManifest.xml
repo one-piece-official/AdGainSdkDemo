@@ -19,7 +19,6 @@
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
@@ -47,21 +46,21 @@
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.adgain.sdk.InterstitialActivity"
+            android:name="com.adgain.sdk.ui.InterstitialActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.adgain.sdk.RewardActivity"
+            android:name="com.adgain.sdk.ui.RewardActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.adgain.sdk.SplashActivity"
+            android:name="com.adgain.sdk.ui.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name="com.adgain.sdk.MainActivity"
+            android:name="com.adgain.sdk.ui.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:hardwareAccelerated="true"

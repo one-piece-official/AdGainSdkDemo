@@ -1,4 +1,4 @@
-package com.adgain.sdk;
+package com.adgain.sdk.ui;
 
 import static com.adgain.sdk.utils.TimeUtils.getDateTimeFormat;
 
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.adgain.demo.android.R;
+import com.adgain.sdk.Constants;
 import com.adgain.sdk.utils.UIUtil;
 import com.adgain.sdk.api.AdError;
 import com.adgain.sdk.api.AdRequest;
@@ -83,7 +84,6 @@ public class InterstitialActivity extends AppCompatActivity implements Interstit
         interstitialAdMap.put(mInterstitialAd.hashCode(), mInterstitialAd);
 
         mInterstitialAd.loadAd();
-
         logMessage("loadAd ");
     }
 

@@ -1,4 +1,4 @@
-package com.adgain.sdk;
+package com.adgain.sdk.ui;
 
 import android.content.Intent;
 import android.os.Bundle;

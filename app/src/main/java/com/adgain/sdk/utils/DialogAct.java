@@ -18,7 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.adgain.demo.android.R;
-import com.adgain.sdk.MainActivity;
+import com.adgain.sdk.ui.MainActivity;
 
 public class DialogAct extends AppCompatActivity {
 

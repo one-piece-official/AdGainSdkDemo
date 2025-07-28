@@ -1,4 +1,4 @@
-package com.adgain.sdk;
+package com.adgain.sdk.ui;
 
 import static com.adgain.sdk.utils.TimeUtils.getDateTimeFormat;
 
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.adgain.demo.android.R;
+import com.adgain.sdk.Constants;
 import com.adgain.sdk.utils.UIUtil;
 import com.adgain.sdk.api.AdError;
 import com.adgain.sdk.api.AdRequest;
@@ -85,7 +86,6 @@ public class RewardActivity extends AppCompatActivity implements RewardAdListene
         rewardAdMap.put(mRewardAd.hashCode(), mRewardAd);
 
         mRewardAd.loadAd();
-
         logMessage("loadAd reward ");
 
     }
@@ -124,8 +124,11 @@ public class RewardActivity extends AppCompatActivity implements RewardAdListene
     }
 
     private void logMessage(String message) {
-        Date date = new Date();
-        logView.append(getDateTimeFormat().format(date) + " " + message + '\n');
+        try {
+            Date date = new Date();
+            logView.append(getDateTimeFormat().format(date) + " " + message + '\n');
+        } catch (Exception e) {
+        }
     }
 
     @Override

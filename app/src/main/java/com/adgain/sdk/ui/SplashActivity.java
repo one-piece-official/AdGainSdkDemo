@@ -1,4 +1,4 @@
-package com.adgain.sdk;
+package com.adgain.sdk.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,8 @@ import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
 
 import com.adgain.demo.android.R;
+import com.adgain.sdk.AdGainSdk;
+import com.adgain.sdk.Constants;
 import com.adgain.sdk.utils.UIUtil;
 import com.adgain.sdk.api.AdError;
 import com.adgain.sdk.api.AdRequest;

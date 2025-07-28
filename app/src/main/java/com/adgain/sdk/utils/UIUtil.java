@@ -94,23 +94,17 @@ public class UIUtil {
         }
     }
 
-    public static LinearLayout createAdButtonsLayout(
-            Context context,
-            String prefix,
-            String adUnitID,
-            ViewGroup parent,
-            View.OnClickListener clickListener) {
-
-        View view = LayoutInflater.from(context).inflate(R.layout.ad_buttons_layout, parent, true);
+    public static void createAdButtonsLayout(Context context, String prefix, String adUnitID,
+                                             ViewGroup parent, View.OnClickListener clickListener) {
+        View view = LayoutInflater.from(context).inflate(R.layout.ad_buttons_layout, parent, false);
         Button btnLoadAd = view.findViewById(R.id.btn_load_ad);
         Button btnShowAd = view.findViewById(R.id.btn_show_ad);
-        
+
         btnLoadAd.setText(prefix + " LOAD-" + adUnitID);
         btnLoadAd.setOnClickListener(clickListener);
         btnShowAd.setText(prefix + " SHOW-" + adUnitID);
         btnShowAd.setOnClickListener(clickListener);
-        
-        return (LinearLayout) view;
+        parent.addView(view);
     }
 
     public static int getARandomColor() {
